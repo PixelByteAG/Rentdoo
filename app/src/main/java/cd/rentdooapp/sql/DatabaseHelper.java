@@ -96,7 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_ID,
                 COLUMN_USER_EMAIL,
                 COLUMN_USER_NAME,
-                COLUMN_USER_NUMBER
+                COLUMN_USER_PASSWORD
         };
         // sorting orders
         String sortOrder =

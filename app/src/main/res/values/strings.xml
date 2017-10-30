@@ -22,13 +22,4 @@
     <string name="action_settings">Settings</string>
     <string name="text_hello">Hello,</string>
     <string name="text_title">Rentdoo</string>
-    <string name="pref_testTitleDiv">Test Settings Div</string>
-    <string name="pref_testCheckbox1">Checkbox 1</string>
-    <string name="pref_testCheckbox1_summ">Checkbox 1 description</string>
-    <string name="pref_testList1">List 1</string>
-    <string name="pref_testList1_default">list 1 default</string>
-    <string name="pref_testList2">list 2</string>
-    <string name="pref_testList2_default">list 2 default</string>
-    <string name="pref_testList3">list 3</string>
-    <string name="pref_testList3_default">list 3 default</string>
 </resources>

@@ -31,4 +31,6 @@
     <string name="pref_testList2_default">list 2 default</string>
     <string name="pref_testList3">list 3</string>
     <string name="pref_testList3_default">list 3 default</string>
+    <string name="billName">Bill</string>
+    <string name="billAmount">$XXX</string>
 </resources>

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/COMP3004-RoommateManager.iml" filepath="$PROJECT_DIR$/COMP3004-RoommateManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/Rentdoo.iml" filepath="$PROJECT_DIR$/Rentdoo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

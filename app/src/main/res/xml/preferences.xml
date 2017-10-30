@@ -2,7 +2,38 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
+        android:key="pref_key_testSettings_testTitleDiv"
+        android:title="@string/pref_testTitleDiv">
 
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_testCheckbox1"
+            android:summary="@string/pref_testCheckbox1_summ"
+            android:title="@string/pref_testCheckbox1" />
+        <ListPreference
+            android:defaultValue="@string/pref_testList1_default"
+            android:dependency="pref_testCheckbox1"
+            android:dialogTitle="@string/pref_testList1"
+            android:entries="@array/pref_testList1_entries"
+            android:entryValues="@array/pref_testList1_values"
+            android:key="pref_testList1"
+            android:title="@string/pref_testList1" />
+        <ListPreference
+            android:defaultValue="@string/pref_testList2_default"
+            android:dependency="pref_testCheckbox1"
+            android:dialogTitle="@string/pref_testList2"
+            android:entries="@array/pref_testList2_entries"
+            android:entryValues="@array/pref_testList2_values"
+            android:key="pref_testList2"
+            android:title="@string/pref_testList2" />
+        <ListPreference
+            android:defaultValue="@string/pref_testList3_default"
+            android:dependency="pref_testCheckbox1"
+            android:dialogTitle="@string/pref_testList3"
+            android:entries="@array/pref_testList3_entries"
+            android:entryValues="@array/pref_testList3_values"
+            android:key="pref_testList3"
+            android:title="@string/pref_testList3" />
 
     </PreferenceCategory>
 

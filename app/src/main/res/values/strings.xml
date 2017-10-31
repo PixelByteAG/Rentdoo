@@ -33,4 +33,10 @@
     <string name="pref_testList3_default">list 3 default</string>
     <string name="billName">Bill</string>
     <string name="billAmount">$XXX</string>
+    <string name="user_payment">Payment due</string>
+    <string name="paymentAmount">$YYYY</string>
+    <string name="text_bills">Bills</string>
+    <string name="text_chores">Chores</string>
+    <string name="choreName">Chore</string>
+    <string name="notice">Notice</string>
 </resources>

@@ -39,4 +39,5 @@
     <string name="text_chores">Chores</string>
     <string name="choreName">Chore</string>
     <string name="notice">Notice</string>
+    <string name="text_notice">Notices</string>
 </resources>

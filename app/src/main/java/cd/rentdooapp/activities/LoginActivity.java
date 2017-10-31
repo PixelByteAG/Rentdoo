@@ -124,6 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             Intent accountsIntent = new Intent(activity, UsersListActivity.class);
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+            //maybe add number here? textInputEditTextNumber
             emptyInputEditText();
             startActivity(accountsIntent);
 

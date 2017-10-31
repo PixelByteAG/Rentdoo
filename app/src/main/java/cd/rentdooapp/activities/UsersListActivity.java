@@ -26,6 +26,7 @@ import java.util.List;
 public class UsersListActivity extends AppCompatActivity {
     private AppCompatActivity activity = UsersListActivity.this;
     private AppCompatTextView textViewName;
+    //private AppCompatTextView textViewNumber;
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
     private UsersRecyclerAdapter usersRecyclerAdapter;
@@ -46,6 +47,7 @@ public class UsersListActivity extends AppCompatActivity {
      */
     private void initViews() {
         textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
+        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
         recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
     }
 
@@ -65,6 +67,8 @@ public class UsersListActivity extends AppCompatActivity {
 
         String emailFromIntent = getIntent().getStringExtra("EMAIL");
         textViewName.setText(emailFromIntent);
+
+        //textViewNumber.setText("hello");
 
         getDataFromSQLite();
     }

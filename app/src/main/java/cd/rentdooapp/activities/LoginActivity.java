@@ -113,7 +113,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (!inputValidation.isInputEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
         }
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_email))) {
+        //fixed a typo here "error_message_email" to "error_message_password"
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
             return;
         }
 
@@ -123,6 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             Intent accountsIntent = new Intent(activity, UsersListActivity.class);
             accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+            //maybe add number here? textInputEditTextNumber
             emptyInputEditText();
             startActivity(accountsIntent);
 

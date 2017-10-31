@@ -1,7 +1,5 @@
 package cd.rentdooapp.model;
 
-import java.util.Date;
-
 /**
  * Created by krashton1 on 10/30/2017.
  */
@@ -12,7 +10,6 @@ public class Bill {
     private String name;
     private int amount;
     private Boolean paid;
-    private Date date;
 
     //initialize all setters and getters
     public int getId() {
@@ -39,16 +36,12 @@ public class Bill {
         this.amount = amount;
     }
 
-    public Boolean getPaid() {
+    public Boolean getPassword() {
         return paid;
     }
 
     public void setPaid(Boolean paid) {
         this.paid = paid;
     }
-
-    public void setDate(Date date){this.date=date;}
-
-    public Date getDate(){return date;}
 }
 

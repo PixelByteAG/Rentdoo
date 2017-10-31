@@ -3,19 +3,4 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="5dp"
-        android:text="@string/text_bills"
-        android:textColor="@android:color/black"
-        android:textSize="24sp" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewBills"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
 </LinearLayout>

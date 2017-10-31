@@ -6,12 +6,12 @@ import java.util.Date;
  * Created by krashton1 on 10/30/2017.
  */
 
-public class Bill {
-    //initialize all variables for bill
+public class Chore {
+    //initialize all variables for chore
     private int id;
     private String name;
-    private int amount;
-    private Boolean paid;
+    private String assigned;
+    private Boolean done;
     private Date date;
 
     //initialize all setters and getters
@@ -31,20 +31,20 @@ public class Bill {
         this.name = name;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getAssigned() {
+        return assigned;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setAssigned(String assigned) {
+        this.assigned = assigned;
     }
 
-    public Boolean getPaid() {
-        return paid;
+    public Boolean getDone() {
+        return done;
     }
 
-    public void setPaid(Boolean paid) {
-        this.paid = paid;
+    public void setDone(Boolean done) {
+        this.done = done;
     }
 
     public void setDate(Date date){this.date=date;}

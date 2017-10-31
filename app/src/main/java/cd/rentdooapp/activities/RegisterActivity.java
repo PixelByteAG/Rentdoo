@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.CheckBox;
 
 import cd.rentdooapp.R;
 import cd.rentdooapp.helpers.InputValidation;
@@ -34,15 +35,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private TextInputLayout textInputLayoutPassword;
     private TextInputLayout textInputLayoutConfirmPassword;
     private TextInputLayout textInputLayoutNumber;
+    private TextInputLayout textInputLayoutGroup;
 
     private TextInputEditText textInputEditTextName;
     private TextInputEditText textInputEditTextEmail;
     private TextInputEditText textInputEditTextPassword;
     private TextInputEditText textInputEditTextConfirmPassword;
     private TextInputEditText textInputEditTextNumber;
+    private TextInputEditText textInputEditTextGroup;
 
     private AppCompatButton appCompatButtonRegister;
     private AppCompatTextView appCompatTextViewLoginLink;
+    private CheckBox appCheckBox;
 
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
@@ -70,17 +74,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         textInputLayoutConfirmPassword = (TextInputLayout) findViewById(R.id.textInputLayoutConfirmPassword);
         textInputLayoutNumber = (TextInputLayout) findViewById(R.id.textInputLayoutNumber);
+        textInputLayoutGroup = (TextInputLayout) findViewById(R.id.textInputLayoutGroup);
 
         textInputEditTextName = (TextInputEditText) findViewById(R.id.textInputEditTextName);
         textInputEditTextEmail = (TextInputEditText) findViewById(R.id.textInputEditTextEmail);
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
         textInputEditTextConfirmPassword = (TextInputEditText) findViewById(R.id.textInputEditTextConfirmPassword);
         textInputEditTextNumber = (TextInputEditText) findViewById(R.id.textInputEditTextNumber);
+        textInputEditTextGroup = (TextInputEditText) findViewById(R.id.textInputEditTextGroup);
 
+        appCheckBox = (CheckBox) findViewById(R.id.checkLeaseHolder);
 
         appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
 
         appCompatTextViewLoginLink = (AppCompatTextView) findViewById(R.id.appCompatTextViewLoginLink);
+
+    }
+
+    public void onCheckboxClicked(){
+        boolean checked = appCheckBox.isChecked();
+
+        if(checked){
+            textInputLayoutGroup.setVisibility(View.GONE);
+        }
 
     }
 
@@ -90,6 +106,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void initListeners() {
         appCompatButtonRegister.setOnClickListener(this);
         appCompatTextViewLoginLink.setOnClickListener(this);
+        appCheckBox.setOnClickListener(this);
 
     }
 
@@ -119,6 +136,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.appCompatTextViewLoginLink:
                 finish();
+                break;
+            case R.id.checkLeaseHolder:
+                boolean checked = appCheckBox.isChecked();
+
+                if(checked){
+                    textInputEditTextGroup.setHint("Create a Group ID");
+                }else{
+                    textInputEditTextGroup.setHint("Enter a Group ID to join!");
+                }
                 break;
         }
     }
@@ -151,12 +177,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
+        if((!inputValidation.isInputEditTextFilled(textInputEditTextGroup, textInputLayoutGroup, "Enter a valid group")) && (!appCheckBox.isChecked())){
+            return;
+        }
 
+        if ((!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) && (!appCheckBox.isChecked()) && (databaseHelper.checkGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim())))) {
+            //roommate registration successful
             user.setName(textInputEditTextName.getText().toString().trim());
             user.setEmail(textInputEditTextEmail.getText().toString().trim());
             user.setPassword(textInputEditTextPassword.getText().toString().trim());
             user.setNumber(textInputEditTextNumber.getText().toString().trim());
+            user.setGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim()));
 
             databaseHelper.addUser(user);
 
@@ -165,9 +196,34 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             emptyInputEditText();
 
 
-        } else {
-            // Snack Bar to show error message that record already exists
-            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+        } else if ((!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) && (appCheckBox.isChecked()) && (!databaseHelper.checkGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim())))) {
+            //leaseholder registration successful
+            user.setName(textInputEditTextName.getText().toString().trim());
+            user.setEmail(textInputEditTextEmail.getText().toString().trim());
+            user.setPassword(textInputEditTextPassword.getText().toString().trim());
+            user.setNumber(textInputEditTextNumber.getText().toString().trim());
+            user.setGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim()));
+
+            databaseHelper.addUser(user);
+            Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+            emptyInputEditText();
+
+        }else if ((databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()))) {
+            //email in use
+            Snackbar.make(nestedScrollView, "Email already exists", Snackbar.LENGTH_LONG).show();
+            textInputEditTextEmail.setText(null);
+        }else if ((!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) && (appCheckBox.isChecked()) && (databaseHelper.checkGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim())))) {
+            //email not in use, leaseholder registration, ID Already Exists
+            Snackbar.make(nestedScrollView, "Group ID Already Exists, Choose Another!", Snackbar.LENGTH_LONG).show();
+            textInputEditTextGroup.setText(null);
+        }else if((!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) && (!appCheckBox.isChecked()) && (!databaseHelper.checkGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim())))) {
+            //email not in use, roommate registration, ID does not exist in database so registration fails
+            Snackbar.make(nestedScrollView, "Group ID does not Exist!", Snackbar.LENGTH_LONG).show();
+            textInputEditTextGroup.setText(null);
+        }else{
+            //Show common Error
+            Snackbar.make(nestedScrollView, "Unknown Error", Snackbar.LENGTH_LONG).show();
+            emptyInputEditText();
         }
 
 
@@ -182,5 +238,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         textInputEditTextPassword.setText(null);
         textInputEditTextConfirmPassword.setText(null);
         textInputEditTextNumber.setText(null);
+        textInputEditTextGroup.setText(null);
     }
 }

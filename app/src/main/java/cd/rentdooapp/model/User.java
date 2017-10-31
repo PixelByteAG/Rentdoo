@@ -12,6 +12,7 @@ public class User {
     private String email;
     private String password;
     private String number;
+    private Integer group;
 
     //initialize all setters and getters
     public int getId() {
@@ -53,4 +54,8 @@ public class User {
     public void setNumber(String number){
         this.number = number;
     }
+
+    public Integer getGroup() { return group; }
+
+    public void setGroup(int group) {this.group = group; }
 }

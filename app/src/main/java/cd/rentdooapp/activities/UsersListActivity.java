@@ -30,6 +30,7 @@ public class UsersListActivity extends AppCompatActivity {
     private List<User> listUsers;
     private UsersRecyclerAdapter usersRecyclerAdapter;
     private DatabaseHelper databaseHelper;
+    //private AppCompatTextView textViewNumber;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class UsersListActivity extends AppCompatActivity {
     private void initViews() {
         textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
         recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
+        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
     }
 
     /**
@@ -66,6 +68,7 @@ public class UsersListActivity extends AppCompatActivity {
         String emailFromIntent = getIntent().getStringExtra("EMAIL");
         textViewName.setText(emailFromIntent);
 
+        //textViewNumber.setText("hello");
         getDataFromSQLite();
     }
 

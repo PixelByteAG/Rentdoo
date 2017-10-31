@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Rentdoo.iml" filepath="$PROJECT_DIR$/Rentdoo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentdooapp.iml" filepath="$PROJECT_DIR$/rentdooapp.iml" />
     </modules>
   </component>
 </project>

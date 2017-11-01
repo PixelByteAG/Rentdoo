@@ -37,6 +37,8 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
         holder.textViewPassword.setText(listUsers.get(position).getPassword());
         //not showing the number
         holder.textViewNumber.setText(listUsers.get(position).getNumber());
+        holder.textViewRole.setText(listUsers.get(position).getRole());
+        holder.textViewRent.setText(Double.toString(listUsers.get(position).getRent()));
     }
 
     @Override
@@ -55,6 +57,8 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
         public AppCompatTextView textViewEmail;
         public AppCompatTextView textViewPassword;
         public AppCompatTextView textViewNumber;
+        public AppCompatTextView textViewRole;
+        public AppCompatTextView textViewRent;
 
         public UserViewHolder(View view) {
             super(view);
@@ -62,6 +66,8 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
             textViewEmail = (AppCompatTextView) view.findViewById(R.id.textViewEmail);
             textViewPassword = (AppCompatTextView) view.findViewById(R.id.textViewPassword);
             textViewNumber = (AppCompatTextView) view.findViewById(R.id.textViewNumber);
+            textViewRole = (AppCompatTextView) view.findViewById(R.id.textViewRole);
+            textViewRent = (AppCompatTextView) view.findViewById(R.id.textViewRent);
         }
     }
 

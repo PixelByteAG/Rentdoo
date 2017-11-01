@@ -12,7 +12,10 @@ public class User {
     private String email;
     private String password;
     private String number;
+    private String role;
     private Integer group;
+    private double rent;
+
 
     //initialize all setters and getters
     public int getId() {
@@ -55,7 +58,15 @@ public class User {
         this.number = number;
     }
 
-    public Integer getGroup() { return group; }
+    public int getGroup() { return group; }
 
     public void setGroup(int group) {this.group = group; }
+
+    public double getRent() { return rent;}
+
+    public void setRent(double rent){ this.rent = rent;}
+
+    public String getRole() { return role;}
+
+    public void setRole(String role) { this.role = role;}
 }

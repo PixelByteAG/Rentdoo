@@ -18,6 +18,7 @@ import android.view.View;
 import cd.rentdooapp.R;
 import cd.rentdooapp.helpers.InputValidation;
 import cd.rentdooapp.sql.DatabaseHelper;
+import cd.rentdooapp.model.User;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
@@ -120,13 +121,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
+            User user;
+
+            user = databaseHelper.returnUser(textInputEditTextEmail.getText().toString().trim());
+
+            if((user.getRole().equals("Leaseholder"))){
+                Intent accountsIntent = new Intent(activity, UsersListActivity.class);
 
 
-            Intent accountsIntent = new Intent(activity, UsersListActivity.class);
-            accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
-            //maybe add number here? textInputEditTextNumber
-            emptyInputEditText();
-            startActivity(accountsIntent);
+                accountsIntent.putExtra("EMAIL", user.getEmail());//textInputEditTextEmail.getText().toString().trim());
+                //Bundle b = new Bundle();
+                //b.putString("EMAIL", user.getEmail());
+                //b.putInt("GROUP", user.getGroup());//Integer.toString(databaseHelper.returnGroup(textInputEditTextEmail.getText().toString().trim(), textInputEditTextPassword.getText().toString().trim()))
+                //accountsIntent.putExtra();
+                //maybe add number here? textInputEditTextNumber
+                emptyInputEditText();
+                startActivity(accountsIntent);
+            }
+
+            if(user.getRole().equals("Roommate")){
+                Intent accountsIntent = new Intent(activity, RoommateActivity.class);
+
+
+                accountsIntent.putExtra("EMAIL", user.getEmail());//textInputEditTextEmail.getText().toString().trim());
+                //Bundle b = new Bundle();
+                //b.putString("EMAIL", user.getEmail());
+                //b.putInt("GROUP", user.getGroup());//Integer.toString(databaseHelper.returnGroup(textInputEditTextEmail.getText().toString().trim(), textInputEditTextPassword.getText().toString().trim()))
+                //accountsIntent.putExtra();
+                //maybe add number here? textInputEditTextNumber
+                emptyInputEditText();
+                startActivity(accountsIntent);
+            }
+
+
+
 
 
         } else {

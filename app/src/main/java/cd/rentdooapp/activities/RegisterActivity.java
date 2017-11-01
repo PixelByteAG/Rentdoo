@@ -188,6 +188,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             user.setPassword(textInputEditTextPassword.getText().toString().trim());
             user.setNumber(textInputEditTextNumber.getText().toString().trim());
             user.setGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim()));
+            user.setRent(500.0);
+            user.setRole("Roommate");
 
             databaseHelper.addUser(user);
 
@@ -203,6 +205,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             user.setPassword(textInputEditTextPassword.getText().toString().trim());
             user.setNumber(textInputEditTextNumber.getText().toString().trim());
             user.setGroup(Integer.parseInt(textInputEditTextGroup.getText().toString().trim()));
+            user.setRole("Leaseholder");
 
             databaseHelper.addUser(user);
             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();

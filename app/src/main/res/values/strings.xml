@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">rentdooapp</string>
-    <string name="text_accounts">All Accounts</string>
+    <string name="text_accounts">All Roommates</string>
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -40,4 +40,8 @@
     <string name="choreName">Chore</string>
     <string name="notice">Notice</string>
     <string name="text_notice">Notices</string>
+    <string name ="hint_role">Role</string>
+    <string name ="hint_rent">Rent</string>
+    <string name ="rentDetail">Rental Information</string>
+    <string name = "hint_phone">Phone</string>
 </resources>

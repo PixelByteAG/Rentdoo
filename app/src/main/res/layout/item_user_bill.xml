@@ -18,14 +18,14 @@
 
             <ImageView
                 android:id="@+id/imageViewBillPaidCheck"
-                android:layout_width="29dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_weight="0.13"
                 app:srcCompat="@android:drawable/ic_delete" />
 
             <TextView
                 android:id="@+id/textViewBill"
-                android:layout_width="wrap_content"
+                android:layout_width="144dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/billName"
@@ -38,9 +38,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/billAmount"
-                android:textAlignment="textEnd"
+                android:textAlignment="textStart"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:gravity="start" />
+
+            <ImageView
+                android:id="@+id/imageViewBillOptions"
+                android:layout_width="29dp"
+                android:layout_height="32dp"
+                android:layout_weight="0.13"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+
         </LinearLayout>
 
     </LinearLayout>

@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\Code\Git\COMP3004\Rentdoo\COMP3004-RoommateManager.iml" filepath="D:\Code\Git\COMP3004\Rentdoo\COMP3004-RoommateManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/Rentdoo.iml" filepath="$PROJECT_DIR$/Rentdoo.iml" />
-      <module fileurl="file://D:\Code\Git\COMP3004\Rentdoo\Rentdoo.iml" filepath="D:\Code\Git\COMP3004\Rentdoo\Rentdoo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\Code\Git\COMP3004\Rentdoo\app\app.iml" filepath="D:\Code\Git\COMP3004\Rentdoo\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentdooapp.iml" filepath="$PROJECT_DIR$/rentdooapp.iml" />
     </modules>
   </component>
 </project>

@@ -1,11 +1,9 @@
 package cd.rentdooapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
-
 /**
- * Created by shuge on 2017-10-21.
+ * Created by shuge on 2017-11-01.
  */
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,9 +21,14 @@ import cd.rentdooapp.sql.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersListActivity extends AppCompatActivity {
-    private AppCompatActivity activity = UsersListActivity.this;
+public class RoommateActivity extends AppCompatActivity{
+    private AppCompatActivity activity = RoommateActivity.this;
     private AppCompatTextView textViewName;
+    private AppCompatTextView textViewName2;
+    private AppCompatTextView textViewEmail;
+    private AppCompatTextView textViewPhone;
+    private AppCompatTextView textViewRole;
+    private AppCompatTextView textViewRent;
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
     private UsersRecyclerAdapter usersRecyclerAdapter;
@@ -36,7 +39,7 @@ public class UsersListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_list);
+        setContentView(R.layout.activity_roommate);
         getSupportActionBar().setTitle("");
         initViews();
         initObjects();
@@ -48,22 +51,21 @@ public class UsersListActivity extends AppCompatActivity {
      */
     private void initViews() {
         textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
+        textViewName2 = (AppCompatTextView) findViewById(R.id.textViewName2);
+        textViewEmail = (AppCompatTextView) findViewById(R.id.textViewEmail);
+        textViewPhone = (AppCompatTextView) findViewById(R.id.textViewNumber);
+        textViewRole = (AppCompatTextView) findViewById(R.id.textViewRole);
+        textViewRent = (AppCompatTextView) findViewById(R.id.textViewRent);
+
+        //recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
         //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
     }
 
-    /**
-     * This method is to initialize objects to be used
-     */
     private void initObjects() {
         listUsers = new ArrayList<>();
         usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
         User user = new User();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewUsers.setLayoutManager(mLayoutManager);
-        recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewUsers.setHasFixedSize(true);
-        recyclerViewUsers.setAdapter(usersRecyclerAdapter);
+
         databaseHelper = new DatabaseHelper(activity);
 
 
@@ -72,33 +74,16 @@ public class UsersListActivity extends AppCompatActivity {
         String emailFromIntent = getIntent().getStringExtra("EMAIL");
         user = databaseHelper.returnUser(emailFromIntent);
         groupFromIntent = user.getGroup();
+
+
         textViewName.setText(emailFromIntent);
+        textViewName2.setText(user.getName());
+        textViewEmail.setText(user.getEmail());
+        textViewPhone.setText(user.getNumber());
+        textViewRole.setText(user.getRole());
+        textViewRent.setText(Double.toString(user.getRent()));
 
-        //textViewName.setText(emailFromIntent);
 
-        //textViewNumber.setText("hello");
-        getDataFromSQLite();
-    }
 
-    /**
-     * This method is to fetch all user records from SQLite
-     */
-    private void getDataFromSQLite() {
-        // AsyncTask is used that SQLite operation not blocks the UI Thread.
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                listUsers.clear();
-                listUsers.addAll(databaseHelper.getGroupUser(groupFromIntent));
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-                usersRecyclerAdapter.notifyDataSetChanged();
-            }
-        }.execute();
     }
 }

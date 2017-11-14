@@ -44,4 +44,9 @@
     <string name ="hint_rent">Rent</string>
     <string name ="rentDetail">Rental Information</string>
     <string name = "hint_phone">Phone</string>
+    <string name="holder_payment">Payments</string>
+    <string name="text_payments">Payments</string>
+    <string name="billUsername">James</string>
+    <string name="paymentTotal">Total</string>
+    <string name="paymentBillUsername">James</string>
 </resources>

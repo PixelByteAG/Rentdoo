@@ -24,27 +24,27 @@
                 app:srcCompat="@android:drawable/ic_delete" />
 
             <TextView
-                android:id="@+id/textViewBill"
-                android:layout_width="144dp"
+                android:id="@+id/textViewPayment"
+                android:layout_width="204dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/billName"
+                android:text="@string/holder_payment"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textViewBillAmount"
+                android:id="@+id/textViewPaymentAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/billAmount"
+                android:gravity="end"
+                android:text="@string/paymentAmount"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="24sp"
-                android:gravity="start" />
+                android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageViewBillOptions"
+                android:id="@+id/imageViewPaymentsRemaining"
                 android:layout_width="29dp"
                 android:layout_height="32dp"
                 android:layout_weight="0.13"

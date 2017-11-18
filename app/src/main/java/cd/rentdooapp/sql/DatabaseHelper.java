@@ -33,12 +33,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_GROUP = "user_group";
     private static final String COLUMN_USER_ROLE = "user_role";
     private static final String COLUMN_USER_RENT = "user_rent";
+    private static final String COLUMN_USER_CHORES = "user_chores";
 
 
     // create table sql query
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_USER_NUMBER + " TEXT," + COLUMN_USER_GROUP + " INTEGER," + COLUMN_USER_ROLE + " TEXT," + COLUMN_USER_RENT + " DOUBLE DEFAULT '0.0'" + ")";
+            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT," + COLUMN_USER_NUMBER
+            + " TEXT," + COLUMN_USER_GROUP + " INTEGER," + COLUMN_USER_ROLE + " TEXT," + COLUMN_USER_RENT
+            + " DOUBLE DEFAULT '0.0'," + COLUMN_USER_CHORES + " TEXT" + ")";
 
     // drop table sql query
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
@@ -85,6 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_GROUP, user.getGroup());
         values.put(COLUMN_USER_ROLE, user.getRole());
         values.put(COLUMN_USER_RENT, user.getRent());
+        values.put(COLUMN_USER_CHORES, user.choresToString());
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);
@@ -101,7 +105,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_NUMBER,
                 COLUMN_USER_GROUP,
                 COLUMN_USER_ROLE,
-                COLUMN_USER_RENT
+                COLUMN_USER_RENT,
+                COLUMN_USER_CHORES
         };
         // sorting orders
         String sortOrder =

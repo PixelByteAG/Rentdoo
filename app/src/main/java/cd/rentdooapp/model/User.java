@@ -1,5 +1,9 @@
 package cd.rentdooapp.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by shuge on 2017-10-21.
  */
@@ -15,6 +19,7 @@ public class User {
     private String role;
     private Integer group;
     private double rent;
+    private ArrayList<String> chores = new ArrayList<>();
 
 
     //initialize all setters and getters
@@ -69,4 +74,56 @@ public class User {
     public String getRole() { return role;}
 
     public void setRole(String role) { this.role = role;}
+
+    //Methods related to chores
+    public ArrayList<String> getChores() { return this.chores; }
+
+    private void setChores(ArrayList<String> newChores) { this.chores = newChores; }
+
+    public String choresToString() {
+        String returnString = "";
+        for (int i=0; i<chores.size(); i++){
+            if(i == chores.size()-1){
+                returnString = returnString + chores.get(i);
+            }
+            else{
+                returnString = returnString + chores.get(i) + ", ";
+            }
+        }
+        return returnString;
+    }
+
+    public void stringToChores(String newChores) {
+        String[] tempString = newChores.split("\"\\\\s*,\\\\s*\"");
+        List<String> newList = Arrays.asList(tempString);
+        ArrayList<String> userChores = new ArrayList<>(newList);
+        setChores(userChores);
+    }
+
+    public void addChore(String newChore) { this.chores.add(newChore); }
+
+    public void removeChore(String oldChore)
+    {
+        for (int i=0; i<chores.size(); i++){
+            String tempChore = chores.get(i);
+            if(tempChore.equals(oldChore)){
+                chores.remove(i);
+                return;
+            }
+        }
+        //no error checking is needed as the leaseholder can only remove existing chores
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -50,4 +50,6 @@
     <string name="paymentTotal">Total</string>
     <string name="paymentBillUsername">James</string>
     <string name="editButtonDefault">Edit</string>
+    <string name="text_tenants">Tenants</string>
+    <string name="tenant">Tenant_Name</string>
 </resources>

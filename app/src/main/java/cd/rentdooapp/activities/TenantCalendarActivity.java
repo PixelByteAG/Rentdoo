@@ -1,6 +1,7 @@
 package cd.rentdooapp.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
@@ -79,6 +81,42 @@ public class TenantCalendarActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.my_toolbar_items, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+            case R.id.action_logout:
+                intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+                return true;
+                
+            case R.id.action_bills:
+                intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_calendar:
+                intent = new Intent(getApplicationContext(),TenantCalendarActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_chores:
+                intent = new Intent(getApplicationContext(),TenantChoresActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_notices:
+                intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
 

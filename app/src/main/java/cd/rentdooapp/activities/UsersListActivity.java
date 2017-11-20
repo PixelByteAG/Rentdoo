@@ -31,7 +31,11 @@ public class UsersListActivity extends AppCompatActivity {
     private UsersRecyclerAdapter usersRecyclerAdapter;
     private DatabaseHelper databaseHelper;
     private int groupFromIntent;
-    //private AppCompatTextView textViewNumber;
+
+    //for the edit buttons
+    /*public void editUser(RecyclerView view) {
+        // Do something in response to button click
+    }*/
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

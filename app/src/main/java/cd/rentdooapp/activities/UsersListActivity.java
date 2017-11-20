@@ -1,5 +1,6 @@
 package cd.rentdooapp.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -14,6 +15,9 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import cd.rentdooapp.R;
 import cd.rentdooapp.adapters.UsersRecyclerAdapter;
@@ -41,7 +45,13 @@ public class UsersListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_list);
-        getSupportActionBar().setTitle("");
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        getSupportActionBar().setTitle("Users");
+
+
         initViews();
         initObjects();
 
@@ -104,5 +114,47 @@ public class UsersListActivity extends AppCompatActivity {
                 usersRecyclerAdapter.notifyDataSetChanged();
             }
         }.execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_toolbar_items, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+            case R.id.action_logout:
+                intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_bills:
+                intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_calendar:
+                intent = new Intent(getApplicationContext(),TenantCalendarActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_chores:
+                intent = new Intent(getApplicationContext(),TenantChoresActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_notices:
+                intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

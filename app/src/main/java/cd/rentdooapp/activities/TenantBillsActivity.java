@@ -68,7 +68,7 @@ public class TenantBillsActivity extends AppCompatActivity {
      */
     private void initObjects() {
         listBills = new ArrayList<>();
-        for(int i=1;i<=5;i++){
+        for(int i=1;i<=6;i++){
             Bill tempBill=new Bill();
             tempBill.setAmount(100*i);
             tempBill.setDate(new Date(2017,10,i));

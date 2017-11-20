@@ -11,7 +11,8 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorBackground"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:theme="@style/rentdooToolbarTheme"
+        android:textColorSecondary="@color/colorText"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleTextColor="@color/colorText"/>
 

@@ -43,7 +43,7 @@
                 android:textSize="24sp"
                 android:gravity="start" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageViewBillOptions"
                 android:layout_width="29dp"
                 android:layout_height="32dp"
@@ -52,5 +52,11 @@
 
         </LinearLayout>
 
+
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
 </android.support.v7.widget.CardView>

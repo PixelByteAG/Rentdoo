@@ -14,6 +14,8 @@ public class Bill {
     private Boolean paid;
     private Date date;
 
+
+
     //initialize all setters and getters
     public int getId() {
         return id;

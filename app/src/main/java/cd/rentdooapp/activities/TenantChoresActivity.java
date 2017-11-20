@@ -7,4 +7,6 @@ import android.app.Activity;
  */
 
 public class TenantChoresActivity extends Activity {
+
+
 }

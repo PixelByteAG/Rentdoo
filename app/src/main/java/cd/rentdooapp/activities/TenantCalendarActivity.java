@@ -45,9 +45,11 @@ public class TenantCalendarActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_calendar);
-        //getSupportActionBar().setTitle("Calendar");
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        getSupportActionBar().setTitle("Calendar");
 
         initViews();
         initObjects();
@@ -94,7 +96,7 @@ public class TenantCalendarActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
                 return true;
-                
+
             case R.id.action_bills:
                 intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
                 startActivity(intent);

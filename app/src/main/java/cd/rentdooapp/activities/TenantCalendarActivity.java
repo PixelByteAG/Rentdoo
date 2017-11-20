@@ -8,6 +8,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
@@ -41,7 +43,10 @@ public class TenantCalendarActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_calendar);
-        getSupportActionBar().setTitle("Calendar");
+        //getSupportActionBar().setTitle("Calendar");
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         initViews();
         initObjects();
 
@@ -69,4 +74,12 @@ public class TenantCalendarActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_toolbar_items, menu);
+        return true;
+    }
+
+
 }

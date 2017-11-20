@@ -100,7 +100,7 @@ public class TenantNoticesActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_bills:
-                intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
+                intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.action_calendar:

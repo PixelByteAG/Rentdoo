@@ -30,10 +30,12 @@
             android:text="Rentdoo Registration"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/colorText"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutName"
+            android:textColorHint="@color/colorText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp">

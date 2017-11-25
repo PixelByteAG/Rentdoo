@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">rentdooapp</string>
+    <string name="app_name">RentDoo</string>
     <string name="text_accounts">All Roommates</string>
     <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>

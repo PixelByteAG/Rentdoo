@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import cd.rentdooapp.R;
 import cd.rentdooapp.adapters.UsersRecyclerAdapter;
@@ -27,8 +29,9 @@ import cd.rentdooapp.sql.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersListActivity extends AppCompatActivity {
+public class UsersListActivity extends AppCompatActivity implements View.OnClickListener{
     private AppCompatActivity activity = UsersListActivity.this;
+    private AppCompatButton editUsersButton;
     private AppCompatTextView textViewName;
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
@@ -53,6 +56,7 @@ public class UsersListActivity extends AppCompatActivity {
 
 
         initViews();
+        initListeners();
         initObjects();
 
     }
@@ -63,7 +67,30 @@ public class UsersListActivity extends AppCompatActivity {
     private void initViews() {
         textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
         recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
-        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
+
+        editUsersButton = (AppCompatButton) findViewById(R.id.userEdit_button);
+    }
+
+    /**
+     * This method is to initialize listeners
+     */
+    private void initListeners() {
+        editUsersButton.setOnClickListener(this);
+    }
+
+    /**
+     * This implemented method is to listen the click on view
+     *
+     * @param v
+     */
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.userEdit_button:
+                // Navigate to UserEditActivity.java
+                Intent intentEdit = new Intent(getApplicationContext(), UserEditActivity.class);
+                startActivity(intentEdit);
+                break;
+        }
     }
 
     /**

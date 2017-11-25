@@ -41,10 +41,10 @@ public class UserEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_list);
-        getSupportActionBar().setTitle("");
-        initViews();
-        initObjects();
+        setContentView(R.layout.item_user_notice);
+        //getSupportActionBar().setTitle("");
+        //initViews();
+        //initObjects();
 
     }
 

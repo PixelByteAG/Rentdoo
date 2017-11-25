@@ -27,6 +27,9 @@
         <activity
             android:name=".activities.RoommateActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.UserEditActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

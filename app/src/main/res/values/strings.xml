@@ -49,5 +49,5 @@
     <string name="billUsername">James</string>
     <string name="paymentTotal">Total</string>
     <string name="paymentBillUsername">James</string>
-    <string name="editButtonDefault">Edit</string>
+    <string name="editButtonDefault">Edit Users</string>
 </resources>

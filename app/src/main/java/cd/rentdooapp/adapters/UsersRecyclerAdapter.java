@@ -10,14 +10,20 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.List;
+
+import cd.rentdooapp.activities.UserEditActivity;
 import cd.rentdooapp.model.User;
 import cd.rentdooapp.R;
+import android.content.Intent;
+import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by shuge on 2017-10-21.
  */
 
 public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdapter.UserViewHolder> {
+
     private List<User> listUsers;
 
     public UsersRecyclerAdapter(List<User> listUsers) {
@@ -75,21 +81,20 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
 
             //add button to edit
-            editButton = (Button) view.findViewById(R.id.userEdit_button);
+            /*editButton = (Button) view.findViewById(R.id.userEdit_button);
 
             editButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("Test", "Button clicked");
-                }
-            });
+                    AppCompatActivity buttonActivity = new AppCompatActivity();
+                    String userEmail = textViewEmail.getText().toString();
+                    String message = "Button " + userEmail + " clicked";
+                    Log.d("Test", message);
 
-            /*button = (ImageButton)v.findViewById(R.id.imageButton);
+                    Intent i = new Intent(buttonActivity, UserEditActivity.class);
+                    //buttonActivity.startActivity(i);
 
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Test", "Button clicked");
+                    //Intent accountsIntent = new Intent(activity, UsersListActivity.class);
                 }
             });*/
         }

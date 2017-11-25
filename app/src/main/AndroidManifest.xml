@@ -3,12 +3,15 @@
     package="cd.rentdooapp">
 
 
+
+
     <application
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait">
@@ -28,7 +31,34 @@
             android:name=".activities.RoommateActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".activities.UserEditActivity"
+            android:name=".activities.TenantCalendarActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.TenantBillsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.TenantChoresActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.TenantNoticesActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.HolderCalendarActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.HolderBillsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.HolderChoresActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.HolderNoticesActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.HolderPaymentsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.HolderTenantsActivity"
             android:screenOrientation="portrait"/>
     </application>
 

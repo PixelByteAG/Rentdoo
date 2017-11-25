@@ -1,13 +1,7 @@
 package cd.rentdooapp.activities;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
-/**
- * Created by shuge on 2017-10-21.
- */
-
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -19,24 +13,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import cd.rentdooapp.R;
-import cd.rentdooapp.adapters.UsersRecyclerAdapter;
-import cd.rentdooapp.model.User;
-import cd.rentdooapp.sql.DatabaseHelper;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersListActivity extends AppCompatActivity {
-    private AppCompatActivity activity = UsersListActivity.this;
-    private AppCompatTextView textViewName;
-    private RecyclerView recyclerViewUsers;
-    private List<User> listUsers;
-    private UsersRecyclerAdapter usersRecyclerAdapter;
-    private DatabaseHelper databaseHelper;
-    private int groupFromIntent;
+import cd.rentdooapp.R;
+import cd.rentdooapp.adapters.TenantCalendarRecyclerAdapter;
+import cd.rentdooapp.adapters.UsersRecyclerAdapter;
+import cd.rentdooapp.model.Notice;
+import cd.rentdooapp.model.User;
+import cd.rentdooapp.sql.DatabaseHelper;
 
-    //for the edit buttons
+/**
+ * Created by krashton1 on 11/18/2017.
+ */
+
+public class TenantCalendarActivity extends AppCompatActivity {
+    private AppCompatActivity activity = TenantCalendarActivity.this;
+    private AppCompatTextView textViewName;
+    private MaterialCalendarView recyclerViewTenantCalendar;
+    private List<Notice> listNotices;
+    private TenantCalendarRecyclerAdapter tenantCalendarRecyclerAdapter;
+
+//for the edit buttons
     /*public void editUser(RecyclerView view) {
         // Do something in response to button click
     }*/
@@ -44,13 +44,12 @@ public class UsersListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_list);
+        setContentView(R.layout.activity_user_calendar);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        getSupportActionBar().setTitle("Users");
-
+        getSupportActionBar().setTitle("Calendar");
 
         initViews();
         initObjects();
@@ -61,59 +60,23 @@ public class UsersListActivity extends AppCompatActivity {
      * This method is to initialize views
      */
     private void initViews() {
-        textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
-        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
+        recyclerViewTenantCalendar = (MaterialCalendarView) findViewById(R.id.calendarView);
     }
 
     /**
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        listUsers = new ArrayList<>();
-        usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
+        listNotices = new ArrayList<>();
+        tenantCalendarRecyclerAdapter = new TenantCalendarRecyclerAdapter(listNotices);
         User user = new User();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewUsers.setLayoutManager(mLayoutManager);
-        recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewUsers.setHasFixedSize(true);
-        recyclerViewUsers.setAdapter(usersRecyclerAdapter);
-        databaseHelper = new DatabaseHelper(activity);
+//        recyclerViewTenantCalendar.setLayoutManager(mLayoutManager);
+//        recyclerViewTenantCalendar.setItemAnimator(new DefaultItemAnimator());
+//        recyclerViewTenantCalendar.setHasFixedSize(true);
+//        recyclerViewTenantCalendar.setAdapter(tenantCalendarRecyclerAdapter);
 
 
-
-        //Bundle b = getIntent().getExtras();
-        String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        user = databaseHelper.returnUser(emailFromIntent);
-        groupFromIntent = user.getGroup();
-        textViewName.setText(emailFromIntent);
-
-        //textViewName.setText(emailFromIntent);
-
-        //textViewNumber.setText("hello");
-        getDataFromSQLite();
-    }
-
-    /**
-     * This method is to fetch all user records from SQLite
-     */
-    private void getDataFromSQLite() {
-        // AsyncTask is used that SQLite operation not blocks the UI Thread.
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                listUsers.clear();
-                listUsers.addAll(databaseHelper.getGroupUser(groupFromIntent));
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-                usersRecyclerAdapter.notifyDataSetChanged();
-            }
-        }.execute();
     }
 
     @Override
@@ -157,4 +120,6 @@ public class UsersListActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

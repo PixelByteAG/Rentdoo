@@ -1,13 +1,7 @@
 package cd.rentdooapp.activities;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
-/**
- * Created by shuge on 2017-10-21.
- */
-
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,25 +10,31 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
-import cd.rentdooapp.R;
-import cd.rentdooapp.adapters.UsersRecyclerAdapter;
-import cd.rentdooapp.model.User;
-import cd.rentdooapp.sql.DatabaseHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class UsersListActivity extends AppCompatActivity {
-    private AppCompatActivity activity = UsersListActivity.this;
-    private AppCompatTextView textViewName;
-    private RecyclerView recyclerViewUsers;
-    private List<User> listUsers;
-    private UsersRecyclerAdapter usersRecyclerAdapter;
-    private DatabaseHelper databaseHelper;
-    private int groupFromIntent;
+import cd.rentdooapp.R;
+import cd.rentdooapp.adapters.TenantBillsRecyclerAdapter;
+import cd.rentdooapp.model.Bill;
+
+/**
+ * Created by krashton1 on 11/18/2017.
+ */
+
+public class TenantBillsActivity extends AppCompatActivity {
+    private AppCompatActivity activity = TenantBillsActivity.this;
+    private List<Bill> listBills;
+    private TenantBillsRecyclerAdapter tenantBillsRecyclerAdapter;
+    private RecyclerView recyclerViewBills;
 
     //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -44,13 +44,12 @@ public class UsersListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_list);
+        setContentView(R.layout.activity_user_bills);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        getSupportActionBar().setTitle("Users");
-
+        getSupportActionBar().setTitle("Bills");
 
         initViews();
         initObjects();
@@ -61,59 +60,33 @@ public class UsersListActivity extends AppCompatActivity {
      * This method is to initialize views
      */
     private void initViews() {
-        textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
-        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
+        recyclerViewBills = (RecyclerView) findViewById(R.id.recyclerViewBills);
     }
 
     /**
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        listUsers = new ArrayList<>();
-        usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
-        User user = new User();
+        listBills = new ArrayList<>();
+        for(int i=1;i<=6;i++){
+            Bill tempBill=new Bill();
+            tempBill.setAmount(100*i);
+            tempBill.setDate(new Date(2017,10,i));
+            tempBill.setId(i);
+            tempBill.setName("Example Bill "+i);
+            tempBill.setPaid((i%2 == 0) ? true : false);
+            listBills.add(tempBill);
+        }
+        System.out.println(listBills);
+
+        tenantBillsRecyclerAdapter = new TenantBillsRecyclerAdapter(listBills);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewUsers.setLayoutManager(mLayoutManager);
-        recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewUsers.setHasFixedSize(true);
-        recyclerViewUsers.setAdapter(usersRecyclerAdapter);
-        databaseHelper = new DatabaseHelper(activity);
 
 
-
-        //Bundle b = getIntent().getExtras();
-        String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        user = databaseHelper.returnUser(emailFromIntent);
-        groupFromIntent = user.getGroup();
-        textViewName.setText(emailFromIntent);
-
-        //textViewName.setText(emailFromIntent);
-
-        //textViewNumber.setText("hello");
-        getDataFromSQLite();
-    }
-
-    /**
-     * This method is to fetch all user records from SQLite
-     */
-    private void getDataFromSQLite() {
-        // AsyncTask is used that SQLite operation not blocks the UI Thread.
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                listUsers.clear();
-                listUsers.addAll(databaseHelper.getGroupUser(groupFromIntent));
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-                usersRecyclerAdapter.notifyDataSetChanged();
-            }
-        }.execute();
+        recyclerViewBills.setLayoutManager(mLayoutManager);
+        recyclerViewBills.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewBills.setHasFixedSize(true);
+        recyclerViewBills.setAdapter(tenantBillsRecyclerAdapter);
     }
 
     @Override
@@ -157,4 +130,6 @@ public class UsersListActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

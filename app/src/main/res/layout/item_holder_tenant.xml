@@ -16,24 +16,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageViewChoreDoneCheck"
-                android:layout_width="29dp"
-                android:layout_height="32dp"
-                android:layout_weight="0.13"
-                app:srcCompat="@android:drawable/ic_delete" />
-
             <TextView
-                android:id="@+id/textViewChore"
+                android:id="@+id/textViewTenant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/choreName"
+                android:text="@string/tenant"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
-            <ImageButton
-                android:id="@+id/imageViewChoreOptions"
+            <ImageView
+                android:id="@+id/imageViewTenantOptions"
                 android:layout_width="29dp"
                 android:layout_height="32dp"
                 android:layout_weight="0.13"
@@ -42,8 +35,4 @@
         </LinearLayout>
 
     </LinearLayout>
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dip"
-        android:background="#000000" />
 </android.support.v7.widget.CardView>

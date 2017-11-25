@@ -1,17 +1,10 @@
 package cd.rentdooapp.activities;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
-/**
- * Created by shuge on 2017-10-21.
- */
-
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,22 +12,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import cd.rentdooapp.R;
-import cd.rentdooapp.adapters.UsersRecyclerAdapter;
-import cd.rentdooapp.model.User;
-import cd.rentdooapp.sql.DatabaseHelper;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class UsersListActivity extends AppCompatActivity {
-    private AppCompatActivity activity = UsersListActivity.this;
-    private AppCompatTextView textViewName;
-    private RecyclerView recyclerViewUsers;
-    private List<User> listUsers;
-    private UsersRecyclerAdapter usersRecyclerAdapter;
-    private DatabaseHelper databaseHelper;
-    private int groupFromIntent;
+import cd.rentdooapp.R;
+import cd.rentdooapp.adapters.TenantChoresRecyclerAdapter;
+import cd.rentdooapp.model.Chore;
+
+/**
+ * Created by krashton1 on 11/18/2017.
+ */
+
+public class TenantChoresActivity extends AppCompatActivity {
+    private AppCompatActivity activity = TenantChoresActivity.this;
+    private List<Chore> listChores;
+    private TenantChoresRecyclerAdapter tenantChoresRecyclerAdapter;
+    private RecyclerView recyclerViewChores;
 
     //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -44,13 +38,12 @@ public class UsersListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_list);
+        setContentView(R.layout.activity_user_chores);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        getSupportActionBar().setTitle("Users");
-
+        getSupportActionBar().setTitle("Chores");
 
         initViews();
         initObjects();
@@ -61,59 +54,33 @@ public class UsersListActivity extends AppCompatActivity {
      * This method is to initialize views
      */
     private void initViews() {
-        textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
-        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
+        recyclerViewChores = (RecyclerView) findViewById(R.id.recyclerViewChores);
     }
 
     /**
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        listUsers = new ArrayList<>();
-        usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
-        User user = new User();
+        listChores = new ArrayList<>();
+        for(int i=1;i<=6;i++){
+            Chore tempChore=new Chore();
+            tempChore.setDate(new Date(2017,10,i));
+            tempChore.setId(i);
+            tempChore.setName("Example Chore "+i);
+            tempChore.setDone((i%2 == 0) ? true : false);
+            tempChore.setAssigned("Example Person "+i);
+            listChores.add(tempChore);
+        }
+        System.out.println(listChores);
+
+        tenantChoresRecyclerAdapter = new TenantChoresRecyclerAdapter(listChores);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewUsers.setLayoutManager(mLayoutManager);
-        recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewUsers.setHasFixedSize(true);
-        recyclerViewUsers.setAdapter(usersRecyclerAdapter);
-        databaseHelper = new DatabaseHelper(activity);
 
 
-
-        //Bundle b = getIntent().getExtras();
-        String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        user = databaseHelper.returnUser(emailFromIntent);
-        groupFromIntent = user.getGroup();
-        textViewName.setText(emailFromIntent);
-
-        //textViewName.setText(emailFromIntent);
-
-        //textViewNumber.setText("hello");
-        getDataFromSQLite();
-    }
-
-    /**
-     * This method is to fetch all user records from SQLite
-     */
-    private void getDataFromSQLite() {
-        // AsyncTask is used that SQLite operation not blocks the UI Thread.
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                listUsers.clear();
-                listUsers.addAll(databaseHelper.getGroupUser(groupFromIntent));
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-                usersRecyclerAdapter.notifyDataSetChanged();
-            }
-        }.execute();
+        recyclerViewChores.setLayoutManager(mLayoutManager);
+        recyclerViewChores.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewChores.setHasFixedSize(true);
+        recyclerViewChores.setAdapter(tenantChoresRecyclerAdapter);
     }
 
     @Override
@@ -157,4 +124,6 @@ public class UsersListActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

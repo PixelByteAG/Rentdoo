@@ -14,7 +14,7 @@
     <string name="error_message_age">Enter Age</string>
     <string name="error_message_password">Enter Password</string>
     <string name="success_message">Registration Successful</string>
-    <string name="text_not_member">No account yet? Create one</string>
+    <string name="text_not_member">No account yet? <u>Create One</u> </string>
     <string name="text_already_member">Already a member? Login</string>
     <string name="error_email_exists">Email Already Exists</string>
     <string name="error_password_match">Password Does Not Matches</string>
@@ -49,5 +49,17 @@
     <string name="billUsername">James</string>
     <string name="paymentTotal">Total</string>
     <string name="paymentBillUsername">James</string>
-    <string name="editButtonDefault">Edit Users</string>
+    <string name="editButtonDefault">Edit</string>
+    <string name="text_tenants">Tenants</string>
+    <string name="tenant">Tenant_Name</string>
+    <string name="action_logout">Logout</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_about_us">About us</string>
+    <string name="privacy_policy">Privacy</string>
+    <string name="action_calendar">Calendar</string>
+    <string name="action_bills">Bills</string>
+    <string name="action_chores">Chores</string>
+    <string name="action_notices">Notices</string>
+    <string name="action_users_list">Users List</string>
 </resources>

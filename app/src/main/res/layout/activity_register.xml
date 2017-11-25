@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
+            android:adjustViewBounds="true"
             android:src="@drawable/logo" />
 
         <TextView
@@ -99,7 +100,7 @@
                 android:id="@+id/textInputEditTextGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint=""
+                android:hint="Enter Group Number!"
                 android:inputType="number"
                 android:maxLines="1"
                 android:textColor="@android:color/white"

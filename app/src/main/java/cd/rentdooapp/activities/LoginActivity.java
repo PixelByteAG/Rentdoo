@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextInputEditText textInputEditTextPassword;
 
     private AppCompatButton appCompatButtonLogin;
-    private AppCompatButton appCompatButtonCustom;
 
     private AppCompatTextView textViewLinkRegister;
 
@@ -43,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
 
         initViews();
         initListeners();
@@ -64,7 +63,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
 
         appCompatButtonLogin = (AppCompatButton) findViewById(R.id.appCompatButtonLogin);
-        appCompatButtonCustom = (AppCompatButton) findViewById(R.id.appCompatButtonCustom);
 
         textViewLinkRegister = (AppCompatTextView) findViewById(R.id.textViewLinkRegister);
 
@@ -75,7 +73,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     private void initListeners() {
         appCompatButtonLogin.setOnClickListener(this);
-        appCompatButtonCustom.setOnClickListener(this);
         textViewLinkRegister.setOnClickListener(this);
     }
 
@@ -103,10 +100,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // Navigate to RegisterActivity
                 Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intentRegister);
-                break;
-            case R.id.appCompatButtonCustom:
-                Intent intentTenantCalendar = new Intent(getApplicationContext(),TenantCalendarActivity.class);
-                startActivity(intentTenantCalendar);
                 break;
         }
     }

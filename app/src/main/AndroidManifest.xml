@@ -65,6 +65,9 @@
         <activity
             android:name=".activities.UserEditActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.EditChosenUserActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

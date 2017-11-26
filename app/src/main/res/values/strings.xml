@@ -62,4 +62,5 @@
     <string name="action_chores">Chores</string>
     <string name="action_notices">Notices</string>
     <string name="action_users_list">Users List</string>
+    <string name="hint_chores">Chores</string>
 </resources>

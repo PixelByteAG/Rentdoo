@@ -1,37 +1,32 @@
 package cd.rentdooapp.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
-/**
- * Created by Alexi on 2017-11-18.
- */
-
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cd.rentdooapp.R;
 import cd.rentdooapp.adapters.UsersRecyclerAdapter;
 import cd.rentdooapp.model.User;
 import cd.rentdooapp.sql.DatabaseHelper;
 
-import java.util.ArrayList;
-import java.util.List;
+/**
+ * Created by Alexi on 2017-11-18.
+ */
 
 
-public class UserEditActivity extends AppCompatActivity {
+public class EditChosenUserActivity extends AppCompatActivity {
     private LinearLayout users_list;
-    private AppCompatActivity activity = UserEditActivity.this;
+    private AppCompatActivity activity = EditChosenUserActivity.this;
     private AppCompatTextView textViewName;
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
@@ -47,10 +42,10 @@ public class UserEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users_edit_list);
+        setContentView(R.layout.activity_edit_user);
         //getSupportActionBar().setTitle("");
-        initViews();
-        initObjects();
+        //initViews();
+        //initObjects();
 
     }
 
@@ -105,10 +100,7 @@ public class UserEditActivity extends AppCompatActivity {
                     String testMsg = listUsers.get(passingInt).getName();
                     Log.d("User Clicked: ", testMsg);
 
-                    Intent editUserIntent = new Intent(UserEditActivity.this, EditChosenUserActivity.class);
-                    editUserIntent.putExtra("UserIndex", passingInt);
-                    editUserIntent.putExtra("UserName", listUsers.get(passingInt).getName());
-                    startActivity(editUserIntent);
+                    Intent editUserIntent = new Intent(EditChosenUserActivity.this, EditChosenUserActivity.class);
                 }
             });
 

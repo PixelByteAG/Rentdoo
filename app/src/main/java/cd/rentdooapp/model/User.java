@@ -94,7 +94,7 @@ public class User {
     }
 
     public void stringToChores(String newChores) {
-        String[] tempString = newChores.split("\"\\\\s*,\\\\s*\"");
+        String[] tempString = newChores.split("\"\\\\s*\n\\\\s*\"");
         List<String> newList = Arrays.asList(tempString);
         ArrayList<String> userChores = new ArrayList<>(newList);
         setChores(userChores);

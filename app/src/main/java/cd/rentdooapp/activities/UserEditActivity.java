@@ -15,6 +15,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -96,6 +97,16 @@ public class UserEditActivity extends AppCompatActivity {
         users_list.setOrientation(LinearLayout.VERTICAL);
         for(int i=0; i<listUsers.size(); i++){
             TextView textView = new TextView(this);
+            final int passingInt = i;
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String testMsg = listUsers.get(passingInt).getName();
+                    Log.d("User Clicked: ", testMsg);
+                }
+            });
+
+            textView.setTextSize(60.0f);
             textView.setText(listUsers.get(i).getName());
             users_list.addView(textView);
         }

@@ -14,6 +14,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -74,8 +75,14 @@ public class UserEditActivity extends AppCompatActivity {
         //recyclerViewUsers.setHasFixedSize(true);
         //recyclerViewUsers.setAdapter(usersRecyclerAdapter);
         databaseHelper = new DatabaseHelper(activity);
+        listUsers = databaseHelper.getAllUser();
+        /*String message = "";
+        for(int i=0; i<listUsers.size(); i++){
+            message = message + listUsers.get(i).getName() + ", ";
+        }
 
-
+        //String message = "";
+        Log.d("DB: ", message);*/
 
         //Bundle b = getIntent().getExtras();
         /*String emailFromIntent = getIntent().getStringExtra("EMAIL");
@@ -87,9 +94,9 @@ public class UserEditActivity extends AppCompatActivity {
         //LinearLayout linearLayout = new LinearLayout(this);
         //setContentView(users_list);
         users_list.setOrientation(LinearLayout.VERTICAL);
-        for(int i=0; i<textArray.length; i++){
+        for(int i=0; i<listUsers.size(); i++){
             TextView textView = new TextView(this);
-            textView.setText(textArray[i]);
+            textView.setText(listUsers.get(i).getName());
             users_list.addView(textView);
         }
 

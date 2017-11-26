@@ -78,7 +78,7 @@ public class User {
     //Methods related to chores
     public ArrayList<String> getChores() { return this.chores; }
 
-    private void setChores(ArrayList<String> newChores) { this.chores = newChores; }
+    public void setChores(ArrayList<String> newChores) { this.chores = newChores; }
 
     public String choresToString() {
         String returnString = "";
@@ -87,7 +87,7 @@ public class User {
                 returnString = returnString + chores.get(i);
             }
             else{
-                returnString = returnString + chores.get(i) + ", ";
+                returnString = returnString + chores.get(i) + "\n";
             }
         }
         return returnString;

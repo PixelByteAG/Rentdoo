@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,15 +35,19 @@ public class EditChosenUserActivity extends AppCompatActivity {
     private LinearLayout users_list;
     private AppCompatActivity activity = EditChosenUserActivity.this;
 
-    private AppCompatTextView textViewName;
-    private AppCompatTextView textViewEmail;
-    private AppCompatTextView textViewPhone;
-    private AppCompatTextView textViewRent;
-    private AppCompatTextView textViewChores;
+    private EditText textViewName;
+    private EditText textViewEmail;
+    private EditText textViewPhone;
+    private EditText textViewRent;
+    private EditText textViewChores;
 
     private List<User> listUsers;
     private DatabaseHelper databaseHelper;
-    private int groupFromIntent;
+    private int userIndex;
+    private String userName;
+
+
+
 
     //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -54,8 +59,13 @@ public class EditChosenUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user);
         //getSupportActionBar().setTitle("");
-        //initViews();
-        //initObjects();
+
+        Bundle bundle = getIntent().getExtras();
+        userIndex = bundle.getInt("UserIndex");
+        userName = bundle.getString("UserName");
+
+        initViews();
+        initObjects();
 
     }
 
@@ -63,45 +73,31 @@ public class EditChosenUserActivity extends AppCompatActivity {
      * This method is to initialize views
      */
     private void initViews() {
-        //textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        //recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
-        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
-        users_list = (LinearLayout) findViewById(R.id.user_list_layout);
+        textViewName = (EditText) findViewById(R.id.inputText_name);
+        textViewEmail = (EditText) findViewById(R.id.inputText_email);
+        textViewPhone = (EditText) findViewById(R.id.inputText_phone);
+        textViewRent = (EditText) findViewById(R.id.inputText_rent);
+        textViewChores = (EditText) findViewById(R.id.inputText_chores);
     }
 
     /**
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        listUsers = new ArrayList<>();
-        //usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
         User user = new User();
-        //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        //recyclerViewUsers.setLayoutManager(mLayoutManager);
-        //recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        //recyclerViewUsers.setHasFixedSize(true);
-        //recyclerViewUsers.setAdapter(usersRecyclerAdapter);
+
         databaseHelper = new DatabaseHelper(activity);
-        listUsers = databaseHelper.getAllUser();
-        /*String message = "";
-        for(int i=0; i<listUsers.size(); i++){
-            message = message + listUsers.get(i).getName() + ", ";
-        }
+        user = databaseHelper.getAllUser().get(userIndex);
 
-        //String message = "";
-        Log.d("DB: ", message);*/
+        textViewName.setText(userName);
+        textViewEmail.setText(user.getEmail());
+        textViewPhone.setText(user.getNumber());
+        double rent = user.getRent();
+        String rentStr = new Double(rent).toString();
+        textViewRent.setText(rentStr);
+        textViewChores.setText(user.choresToString());
 
-        //Bundle b = getIntent().getExtras();
-        /*String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        user = databaseHelper.returnUser(emailFromIntent);
-        groupFromIntent = user.getGroup();
-        textViewName.setText(emailFromIntent);*/
-
-        String[] textArray = {"one", "two", "three", "four"};
-        //LinearLayout linearLayout = new LinearLayout(this);
-        //setContentView(users_list);
-        users_list.setOrientation(LinearLayout.VERTICAL);
-        for(int i=0; i<listUsers.size(); i++){
+        /*for(int i=0; i<listUsers.size(); i++){
             TextView textView = new TextView(this);
             final int passingInt = i;
             textView.setOnClickListener(new View.OnClickListener() {
@@ -117,13 +113,6 @@ public class EditChosenUserActivity extends AppCompatActivity {
             textView.setTextSize(60.0f);
             textView.setText(listUsers.get(i).getName());
             users_list.addView(textView);
-        }
-
-
-
-        //textViewName.setText(emailFromIntent);
-
-        //textViewNumber.setText("hello");
-        //getDataFromSQLite();*/
+        }*/
     }
 }

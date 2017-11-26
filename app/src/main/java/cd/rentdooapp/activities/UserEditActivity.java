@@ -49,6 +49,10 @@ public class UserEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_edit_list);
         //getSupportActionBar().setTitle("");
+
+        Bundle bundle = getIntent().getExtras();
+        groupFromIntent = bundle.getInt("groupID");
+
         initViews();
         initObjects();
 
@@ -77,7 +81,8 @@ public class UserEditActivity extends AppCompatActivity {
         //recyclerViewUsers.setHasFixedSize(true);
         //recyclerViewUsers.setAdapter(usersRecyclerAdapter);
         databaseHelper = new DatabaseHelper(activity);
-        listUsers = databaseHelper.getAllUser();
+        //listUsers = databaseHelper.getAllUser();
+        listUsers = databaseHelper.getGroupUser(groupFromIntent);
         /*String message = "";
         for(int i=0; i<listUsers.size(); i++){
             message = message + listUsers.get(i).getName() + ", ";

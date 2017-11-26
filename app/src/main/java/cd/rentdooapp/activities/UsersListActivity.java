@@ -88,6 +88,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
             case R.id.userEdit_button:
                 // Navigate to UserEditActivity.java
                 Intent intentEdit = new Intent(getApplicationContext(), UserEditActivity.class);
+                intentEdit.putExtra("groupID", groupFromIntent);
                 startActivity(intentEdit);
                 break;
         }

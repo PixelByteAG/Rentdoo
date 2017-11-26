@@ -23,14 +23,24 @@ import cd.rentdooapp.sql.DatabaseHelper;
  * Created by Alexi on 2017-11-18.
  */
 
-
+/*
+Name
+Email
+Phone
+Rent
+Chores
+ */
 public class EditChosenUserActivity extends AppCompatActivity {
     private LinearLayout users_list;
     private AppCompatActivity activity = EditChosenUserActivity.this;
+
     private AppCompatTextView textViewName;
-    private RecyclerView recyclerViewUsers;
+    private AppCompatTextView textViewEmail;
+    private AppCompatTextView textViewPhone;
+    private AppCompatTextView textViewRent;
+    private AppCompatTextView textViewChores;
+
     private List<User> listUsers;
-    private UsersRecyclerAdapter usersRecyclerAdapter;
     private DatabaseHelper databaseHelper;
     private int groupFromIntent;
 

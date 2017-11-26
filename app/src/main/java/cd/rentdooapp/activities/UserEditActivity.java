@@ -14,6 +14,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import cd.rentdooapp.R;
 import cd.rentdooapp.adapters.UsersRecyclerAdapter;
@@ -25,10 +27,11 @@ import java.util.List;
 
 
 public class UserEditActivity extends AppCompatActivity {
+    private LinearLayout users_list;
     private AppCompatActivity activity = UserEditActivity.this;
     private AppCompatTextView textViewName;
     private RecyclerView recyclerViewUsers;
-    private User selectedUser;
+    private List<User> listUsers;
     private UsersRecyclerAdapter usersRecyclerAdapter;
     private DatabaseHelper databaseHelper;
     private int groupFromIntent;
@@ -41,10 +44,10 @@ public class UserEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_user_notice);
+        setContentView(R.layout.activity_users_edit_list);
         //getSupportActionBar().setTitle("");
-        //initViews();
-        //initObjects();
+        initViews();
+        initObjects();
 
     }
 
@@ -52,36 +55,49 @@ public class UserEditActivity extends AppCompatActivity {
      * This method is to initialize views
      */
     private void initViews() {
-        /*textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
-        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);*/
+        //textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
+        //recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
+        //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
+        users_list = (LinearLayout) findViewById(R.id.user_list_layout);
     }
 
     /**
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        /*listUsers = new ArrayList<>();
-        usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
+        listUsers = new ArrayList<>();
+        //usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
         User user = new User();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewUsers.setLayoutManager(mLayoutManager);
-        recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewUsers.setHasFixedSize(true);
-        recyclerViewUsers.setAdapter(usersRecyclerAdapter);
+        //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        //recyclerViewUsers.setLayoutManager(mLayoutManager);
+        //recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
+        //recyclerViewUsers.setHasFixedSize(true);
+        //recyclerViewUsers.setAdapter(usersRecyclerAdapter);
         databaseHelper = new DatabaseHelper(activity);
 
 
 
         //Bundle b = getIntent().getExtras();
-        String emailFromIntent = getIntent().getStringExtra("EMAIL");
+        /*String emailFromIntent = getIntent().getStringExtra("EMAIL");
         user = databaseHelper.returnUser(emailFromIntent);
         groupFromIntent = user.getGroup();
-        textViewName.setText(emailFromIntent);
+        textViewName.setText(emailFromIntent);*/
+
+        String[] textArray = {"one", "two", "three", "four"};
+        //LinearLayout linearLayout = new LinearLayout(this);
+        //setContentView(users_list);
+        users_list.setOrientation(LinearLayout.VERTICAL);
+        for(int i=0; i<textArray.length; i++){
+            TextView textView = new TextView(this);
+            textView.setText(textArray[i]);
+            users_list.addView(textView);
+        }
+
+
 
         //textViewName.setText(emailFromIntent);
 
         //textViewNumber.setText("hello");
-        getDataFromSQLite();*/
+        //getDataFromSQLite();*/
     }
 }

@@ -7,16 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import java.util.List;
 
-import cd.rentdooapp.activities.UserEditActivity;
 import cd.rentdooapp.model.User;
 import cd.rentdooapp.R;
-import android.content.Intent;
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by shuge on 2017-10-21.
@@ -91,7 +86,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
                     String message = "Button " + userEmail + " clicked";
                     Log.d("Test", message);
 
-                    Intent i = new Intent(buttonActivity, UserEditActivity.class);
+                    Intent i = new Intent(buttonActivity, UserEditListActivity.class);
                     //buttonActivity.startActivity(i);
 
                     //Intent accountsIntent = new Intent(activity, UsersListActivity.class);

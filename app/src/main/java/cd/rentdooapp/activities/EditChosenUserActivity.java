@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,7 +32,7 @@ Phone
 Rent
 Chores
  */
-public class EditChosenUserActivity extends AppCompatActivity {
+public class EditChosenUserActivity extends AppCompatActivity implements View.OnClickListener{
     private LinearLayout users_list;
     private AppCompatActivity activity = EditChosenUserActivity.this;
 
@@ -40,6 +41,8 @@ public class EditChosenUserActivity extends AppCompatActivity {
     private EditText textViewPhone;
     private EditText textViewRent;
     private EditText textViewChores;
+
+    private Button updateUserButton;
 
     private List<User> listUsers;
     private DatabaseHelper databaseHelper;
@@ -65,6 +68,7 @@ public class EditChosenUserActivity extends AppCompatActivity {
         userName = bundle.getString("UserName");
 
         initViews();
+        initListeners();
         initObjects();
 
     }
@@ -78,6 +82,25 @@ public class EditChosenUserActivity extends AppCompatActivity {
         textViewPhone = (EditText) findViewById(R.id.inputText_phone);
         textViewRent = (EditText) findViewById(R.id.inputText_rent);
         textViewChores = (EditText) findViewById(R.id.inputText_chores);
+
+        updateUserButton = (Button) findViewById(R.id.button_updateUser);
+    }
+
+    private void initListeners() {
+        updateUserButton.setOnClickListener(this);
+    }
+
+    /**
+     * This implemented method is to listen the click on view
+     *
+     * @param v
+     */
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_updateUser:
+                //update the user values then update it in the database
+                Log.d("test: ", "saved changes clicked");
+        }
     }
 
     /**
@@ -95,7 +118,7 @@ public class EditChosenUserActivity extends AppCompatActivity {
         double rent = user.getRent();
         String rentStr = new Double(rent).toString();
         textViewRent.setText(rentStr);
-        textViewChores.setText(user.choresToString());
+        textViewChores.setText(user.getChores());
 
         /*for(int i=0; i<listUsers.size(); i++){
             TextView textView = new TextView(this);

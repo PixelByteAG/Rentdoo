@@ -19,7 +19,7 @@ public class User {
     private String role;
     private Integer group;
     private double rent;
-    private ArrayList<String> chores = new ArrayList<>();
+    private String chores;
 
 
     //initialize all setters and getters
@@ -76,11 +76,11 @@ public class User {
     public void setRole(String role) { this.role = role;}
 
     //Methods related to chores
-    public ArrayList<String> getChores() { return this.chores; }
+    public String getChores() { return this.chores; }
 
-    public void setChores(ArrayList<String> newChores) { this.chores = newChores; }
+    public void setChores(String newChores) { this.chores = newChores; }
 
-    public String choresToString() {
+    /*public String choresToString() {
         String returnString = "";
         for (int i=0; i<chores.size(); i++){
             if(i == chores.size()-1){
@@ -98,9 +98,9 @@ public class User {
         List<String> newList = Arrays.asList(tempString);
         ArrayList<String> userChores = new ArrayList<>(newList);
         setChores(userChores);
-    }
+    }*/
 
-    public void addChore(String newChore) { this.chores.add(newChore); }
+    /*public void addChore(String newChore) { this.chores.add(newChore); }
 
     public void removeChore(String oldChore)
     {
@@ -112,7 +112,7 @@ public class User {
             }
         }
         //no error checking is needed as the leaseholder can only remove existing chores
-    }
+    }*/
 }
 
 

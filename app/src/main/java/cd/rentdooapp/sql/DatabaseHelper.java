@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_GROUP, user.getGroup());
         values.put(COLUMN_USER_ROLE, user.getRole());
         values.put(COLUMN_USER_RENT, user.getRent());
-        values.put(COLUMN_USER_CHORES, user.choresToString());
+        values.put(COLUMN_USER_CHORES, user.getChores());
 
         // Inserting Row
         db.insert(TABLE_USER, null, values);

@@ -80,39 +80,14 @@ public class User {
 
     public void setChores(String newChores) { this.chores = newChores; }
 
-    /*public String choresToString() {
-        String returnString = "";
-        for (int i=0; i<chores.size(); i++){
-            if(i == chores.size()-1){
-                returnString = returnString + chores.get(i);
-            }
-            else{
-                returnString = returnString + chores.get(i) + "\n";
-            }
-        }
-        return returnString;
+    public void updateUserValues(String name, String email, String number, String rent, String chores){
+        this.setName(name);
+        this.setEmail(email);
+        this.setNumber(number);
+        this.setRent(Double.parseDouble(rent));
+        this.setChores(chores);
+        //this.setGroup(groupNum);
     }
-
-    public void stringToChores(String newChores) {
-        String[] tempString = newChores.split("\"\\\\s*\n\\\\s*\"");
-        List<String> newList = Arrays.asList(tempString);
-        ArrayList<String> userChores = new ArrayList<>(newList);
-        setChores(userChores);
-    }*/
-
-    /*public void addChore(String newChore) { this.chores.add(newChore); }
-
-    public void removeChore(String oldChore)
-    {
-        for (int i=0; i<chores.size(); i++){
-            String tempChore = chores.get(i);
-            if(tempChore.equals(oldChore)){
-                chores.remove(i);
-                return;
-            }
-        }
-        //no error checking is needed as the leaseholder can only remove existing chores
-    }*/
 }
 
 

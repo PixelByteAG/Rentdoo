@@ -99,6 +99,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.textViewLinkRegister:
                 // Navigate to RegisterActivity
                 Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
+                //finish();
                 startActivity(intentRegister);
                 break;
         }

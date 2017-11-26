@@ -43,11 +43,19 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
     private EditText textViewChores;
 
     private Button updateUserButton;
+    private Button redirectToUsers;
 
     private List<User> listUsers;
     private DatabaseHelper databaseHelper;
     private int userIndex;
     private String userName;
+    private User currentUser;
+
+    private String masterEmail;
+
+    /*@Override
+    public void onBackPressed() {
+    }*/
 
 
 
@@ -66,6 +74,7 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
         Bundle bundle = getIntent().getExtras();
         userIndex = bundle.getInt("UserIndex");
         userName = bundle.getString("UserName");
+        masterEmail = bundle.getString("masterEmail");
 
         initViews();
         initListeners();
@@ -84,10 +93,12 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
         textViewChores = (EditText) findViewById(R.id.inputText_chores);
 
         updateUserButton = (Button) findViewById(R.id.button_updateUser);
+        //redirectToUsers = (Button) findViewById(R.id.button_updateUser);
     }
 
     private void initListeners() {
         updateUserButton.setOnClickListener(this);
+        //redirectToUsers.setOnClickListener(this);
     }
 
     /**
@@ -99,7 +110,19 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
         switch (v.getId()) {
             case R.id.button_updateUser:
                 //update the user values then update it in the database
-                Log.d("test: ", "saved changes clicked");
+                currentUser.updateUserValues(textViewName.getText().toString(), textViewEmail.getText().toString(), textViewPhone.getText().toString(), textViewRent.getText().toString(), textViewChores.getText().toString());
+                databaseHelper.updateUser(currentUser);
+
+                Intent userListIntent = new Intent(EditChosenUserActivity.this, UsersListActivity.class);
+                userListIntent.putExtra("EMAIL", masterEmail);
+                //editUserIntent.putExtra("UserName", listUsers.get(passingInt).getName());
+                finish();
+                startActivity(userListIntent);
+
+                //Log.d("test: ", "saved changes clicked");
+
+            //case R.id.button_redirectUsersList:
+
         }
     }
 
@@ -107,18 +130,16 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
      * This method is to initialize objects to be used
      */
     private void initObjects() {
-        User user = new User();
-
         databaseHelper = new DatabaseHelper(activity);
-        user = databaseHelper.getAllUser().get(userIndex);
+        currentUser = databaseHelper.getAllUser().get(userIndex);
 
         textViewName.setText(userName);
-        textViewEmail.setText(user.getEmail());
-        textViewPhone.setText(user.getNumber());
-        double rent = user.getRent();
+        textViewEmail.setText(currentUser.getEmail());
+        textViewPhone.setText(currentUser.getNumber());
+        double rent = currentUser.getRent();
         String rentStr = new Double(rent).toString();
         textViewRent.setText(rentStr);
-        textViewChores.setText(user.getChores());
+        textViewChores.setText(currentUser.getChores());
 
         /*for(int i=0; i<listUsers.size(); i++){
             TextView textView = new TextView(this);

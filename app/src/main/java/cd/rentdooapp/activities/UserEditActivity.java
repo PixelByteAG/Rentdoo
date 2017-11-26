@@ -38,6 +38,7 @@ public class UserEditActivity extends AppCompatActivity {
     private UsersRecyclerAdapter usersRecyclerAdapter;
     private DatabaseHelper databaseHelper;
     private int groupFromIntent;
+    private String masterEmail;
 
     //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -52,10 +53,21 @@ public class UserEditActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         groupFromIntent = bundle.getInt("groupID");
+        masterEmail = bundle.getString("masterEmail");
 
         initViews();
         initObjects();
 
+    }
+
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
+        //recreate();
+        //finish();
+        //startActivity(getIntent());
     }
 
     /**
@@ -113,6 +125,8 @@ public class UserEditActivity extends AppCompatActivity {
                     Intent editUserIntent = new Intent(UserEditActivity.this, EditChosenUserActivity.class);
                     editUserIntent.putExtra("UserIndex", passingInt);
                     editUserIntent.putExtra("UserName", listUsers.get(passingInt).getName());
+                    editUserIntent.putExtra("masterEmail", masterEmail);
+                    //finish();
                     startActivity(editUserIntent);
                 }
             });

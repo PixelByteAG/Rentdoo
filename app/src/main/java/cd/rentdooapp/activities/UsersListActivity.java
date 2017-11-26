@@ -38,6 +38,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
     private UsersRecyclerAdapter usersRecyclerAdapter;
     private DatabaseHelper databaseHelper;
     private int groupFromIntent;
+    private String emailFromIntent;
 
     //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -59,6 +60,16 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
         initListeners();
         initObjects();
 
+    }
+
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
+        //initViews();
+        //initListeners();
+        //initObjects();
     }
 
     /**
@@ -89,6 +100,8 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
                 // Navigate to UserEditActivity.java
                 Intent intentEdit = new Intent(getApplicationContext(), UserEditActivity.class);
                 intentEdit.putExtra("groupID", groupFromIntent);
+                intentEdit.putExtra("masterEmail", emailFromIntent);
+                //finish();
                 startActivity(intentEdit);
                 break;
         }
@@ -111,7 +124,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
 
 
         //Bundle b = getIntent().getExtras();
-        String emailFromIntent = getIntent().getStringExtra("EMAIL");
+        emailFromIntent = getIntent().getStringExtra("EMAIL");
         user = databaseHelper.returnUser(emailFromIntent);
         groupFromIntent = user.getGroup();
         textViewName.setText(emailFromIntent);

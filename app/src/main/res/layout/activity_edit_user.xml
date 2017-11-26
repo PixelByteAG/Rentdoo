@@ -19,16 +19,11 @@
             android:text="@string/text_title"
             android:textSize="20sp" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button_updateUser"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/text_hello" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/textViewName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Save Changes" />
 
         <!-- android:onClick="editUsers_click" -->
 
@@ -126,12 +121,6 @@
                 android:ems="10"
                 android:hint="@string/hint_chores"
                 android:inputType="textMultiLine" />
-
-            <Button
-                android:id="@+id/button_updateUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Save Changes" />
 
         </LinearLayout>
     </ScrollView>

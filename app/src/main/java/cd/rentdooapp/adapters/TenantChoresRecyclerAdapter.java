@@ -37,10 +37,11 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
     @Override
     public void onBindViewHolder(ChoreViewHolder holder, int position) {
         holder.textViewChore.setText(listChores.get(position).getName());
+
         if(listChores.get(position).getDone()){
-            holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.checkbox_on_background);
+            holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);
         }else{
-            holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.checkbox_off_background);
+            holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.ic_delete);
         }
     }
 

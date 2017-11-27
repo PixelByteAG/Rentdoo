@@ -40,9 +40,9 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
         holder.textViewBill.setText(listBills.get(position).getName());
         holder.textViewBillAmount.setText("$"+listBills.get(position).getAmount());
         if(listBills.get(position).getPaid()){
-            holder.imageViewBillPaidCheck.setImageResource(android.R.drawable.checkbox_on_background);
+            holder.imageViewBillPaidCheck.setImageResource(android.R.drawable.presence_online);
         }else{
-            holder.imageViewBillPaidCheck.setImageResource(android.R.drawable.checkbox_off_background);
+            holder.imageViewBillPaidCheck.setImageResource(android.R.drawable.ic_delete);
         }
     }
 

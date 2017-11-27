@@ -35,8 +35,8 @@
             <TextView
                 android:id="@+id/textViewBillAmount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_weight="1.00"
                 android:text="@string/billAmount"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/darker_gray"
@@ -48,7 +48,7 @@
                 android:layout_width="29dp"
                 android:layout_height="32dp"
                 android:layout_weight="0.13"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+                app:srcCompat="@android:drawable/ic_menu_edit" />
 
         </LinearLayout>
 

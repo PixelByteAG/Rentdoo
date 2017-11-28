@@ -1,0 +1,9 @@
+Shugeevan Raveendran (100941950)
+
+Week of Nov 6, 2017:
+
+Added separate leaseholder and roommate activity pages, with rental details. Group ID Validation is fully functional.
+
+Looked into Push Notifications.
+
+Looked into SMS implementation.

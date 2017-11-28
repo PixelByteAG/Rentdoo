@@ -1,0 +1,11 @@
+Shugeevan Raveendran (100941950)
+
+Week of Oct 16, 2017:
+
+Implemented DatabaseHelper’s functions: getAllUser(), updateUser(), checkUser(), checkUser(), returnUser().
+
+Received Calvin’s code. Merged it with my own.
+
+Oct 22, 2017: 
+
+Initial commit.

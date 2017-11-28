@@ -1,0 +1,9 @@
+Shugeevan Raveendran (100941950)
+
+Week of Oct 9, 2017:
+
+Looked into suitable databases for our project. Decided on SQLite.
+
+DatabaseHelper.java was created.
+
+Implemented DatabaseHelper’s functions: DatabaseHelper(), onCreate(), onUpgrade(), addUser(), getGroupUser()

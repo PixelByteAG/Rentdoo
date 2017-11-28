@@ -1,0 +1,5 @@
+Shugeevan Raveendran (100941950)
+
+Week of Nov 27, 2017:
+
+Started remapping server code to Google Firebase.

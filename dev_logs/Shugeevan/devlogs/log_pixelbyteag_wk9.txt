@@ -1,0 +1,7 @@
+Shugeevan Raveendran (100941950)
+
+Week of Nov 13, 2017:
+
+Looked into Google Firebase.
+
+Started on SMS implementation.

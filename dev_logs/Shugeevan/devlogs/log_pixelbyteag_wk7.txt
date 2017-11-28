@@ -1,0 +1,7 @@
+Shugeevan Raveendran (100941950)
+
+Week of Oct 30, 2017:
+
+Added group identification and error handling.
+
+Merge remote-tracking branch 'rentdoo/master'.

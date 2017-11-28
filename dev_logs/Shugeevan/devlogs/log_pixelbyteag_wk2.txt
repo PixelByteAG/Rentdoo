@@ -1,0 +1,11 @@
+Shugeevan Raveendran (100941950)
+
+Week of Sept 25, 2017:
+
+Created new Rentdoo repo: https://github.com/PixelByteAG/Rentdoo
+
+Received Calvin’s code.
+
+Discussion with the group - realized this current layout wouldn’t be right for the project.
+
+Started a new project from scratch.

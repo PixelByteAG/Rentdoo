@@ -1,0 +1,12 @@
+Shugeevan Raveendran (100941950)
+
+Week of Oct 2, 2017:
+
+LoginActivity.java created.
+
+Implemented LoginActivity’s functions: onCreate(), initViews(), initListeners(), initObjects(), onClick().
+
+RegisterActivity.java created.
+
+Implemented RegisterActivity’s functions: onCreate(), initViews(), initListeners(), initObjects(), onClick().
+

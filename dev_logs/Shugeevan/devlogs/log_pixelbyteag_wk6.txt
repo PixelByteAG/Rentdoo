@@ -1,0 +1,7 @@
+Shugeevan Raveendran (100941950)
+
+Week of Oct 23, 2017:
+
+Fixed register script, taking in number, and displaying number.
+
+Merge remote-tracking branch 'rentdoo/master'.

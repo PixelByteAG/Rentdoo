@@ -1,0 +1,7 @@
+Shugeevan Raveendran (100941950)
+
+Week of Sept 18, 2017:
+
+Research on suitable databases, including MongoDB and SQLite.
+
+Decided on SQLite.

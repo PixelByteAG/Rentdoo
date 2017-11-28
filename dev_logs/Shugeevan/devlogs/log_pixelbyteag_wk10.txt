@@ -1,0 +1,7 @@
+Shugeevan Raveendran (100941950)
+
+Week of Nov 20, 2017:
+
+SMS notifications implemented.
+
+Preparation and TA presentation.

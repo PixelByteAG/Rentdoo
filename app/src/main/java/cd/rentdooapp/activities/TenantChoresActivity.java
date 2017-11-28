@@ -17,9 +17,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import cd.rentdooapp.R;
 import cd.rentdooapp.adapters.TenantChoresRecyclerAdapter;
@@ -36,7 +34,6 @@ public class TenantChoresActivity extends AppCompatActivity {
     private List<User> listUsers;
     private DatabaseHelper databaseHelper;
     private List<Chore> listChores;
-    private Map<String,List<Chore>> allChores;
     private TenantChoresRecyclerAdapter tenantChoresRecyclerAdapter;
     private LinearLayout choresView;
     private RecyclerView recyclerViewChores;
@@ -82,22 +79,27 @@ public class TenantChoresActivity extends AppCompatActivity {
         listUsers = databaseHelper.getGroupUser(groupFromIntent);
         listChores = new ArrayList<>();
 
-        allChores =new HashMap<>();
-        List<Chore> tempList;
-
-        for(int i=0;i<listChores.size();i++){
-            if(allChores.containsKey(listChores.get(i).getAssigned())){
-                tempList = allChores.get(listChores.get(i).getAssigned());
-                tempList.add(listChores.get(i));
-                allChores.put(listChores.get(i).getAssigned(),tempList);
-            }else{
-                tempList = new ArrayList<Chore>();
-                tempList.add(listChores.get(i));
-                allChores.put(listChores.get(i).getAssigned(),tempList);
-            }
+        //for loop: users
+        for(int a=0; a<listUsers.size(); a++){
+            TextView username_text = new TextView(this);
+            username_text.setTextSize(30.0f);
+            username_text.setText(listUsers.get(a).getName());
+            choresView.addView(username_text);
         }
 
-        tenantChoresRecyclerAdapter = new TenantChoresRecyclerAdapter(allChores);
+        //for loop: chores
+        for(int i=1;i<=6;i++){
+            Chore tempChore=new Chore();
+            tempChore.setDate(new Date(2017,10,i));
+            tempChore.setId(i);
+            tempChore.setName("Example Chore "+i);
+            tempChore.setDone((i%2 == 0) ? true : false);
+            tempChore.setAssigned("Example Person "+i);
+            listChores.add(tempChore);
+        }
+        //System.out.println(listChores);
+
+        tenantChoresRecyclerAdapter = new TenantChoresRecyclerAdapter(listChores);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
 
 

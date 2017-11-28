@@ -1,6 +1,7 @@
 package cd.rentdooapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -131,9 +132,18 @@ public class UserEditActivity extends AppCompatActivity {
                 }
             });
 
-            textView.setTextSize(60.0f);
+            textView.setTextSize(30.0f);
             textView.setText(listUsers.get(i).getName());
             users_list.addView(textView);
+
+            View v = new View(this);
+            v.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    5
+            ));
+            v.setBackgroundColor(Color.parseColor("#B3B3B3"));
+
+            users_list.addView(v);
         }
 
 

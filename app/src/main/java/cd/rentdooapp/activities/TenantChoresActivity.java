@@ -117,6 +117,10 @@ public class TenantChoresActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_rules:
+                intent = new Intent(getApplicationContext(),TenantRulesActivity.class);
+                startActivity(intent);
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

@@ -201,6 +201,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
                 return true;
             case R.id.action_chores:
                 intent = new Intent(getApplicationContext(),TenantChoresActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_notices:

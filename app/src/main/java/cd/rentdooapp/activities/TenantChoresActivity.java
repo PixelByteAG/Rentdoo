@@ -11,6 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +22,8 @@ import java.util.List;
 import cd.rentdooapp.R;
 import cd.rentdooapp.adapters.TenantChoresRecyclerAdapter;
 import cd.rentdooapp.model.Chore;
+import cd.rentdooapp.model.User;
+import cd.rentdooapp.sql.DatabaseHelper;
 
 /**
  * Created by krashton1 on 11/18/2017.
@@ -26,9 +31,13 @@ import cd.rentdooapp.model.Chore;
 
 public class TenantChoresActivity extends AppCompatActivity {
     private AppCompatActivity activity = TenantChoresActivity.this;
+    private List<User> listUsers;
+    private DatabaseHelper databaseHelper;
     private List<Chore> listChores;
     private TenantChoresRecyclerAdapter tenantChoresRecyclerAdapter;
+    private LinearLayout choresView;
     private RecyclerView recyclerViewChores;
+    private int groupFromIntent;
 
     //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -45,6 +54,9 @@ public class TenantChoresActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Chores");
 
+        Bundle bundle = getIntent().getExtras();
+        groupFromIntent = bundle.getInt("groupID");
+
         initViews();
         initObjects();
 
@@ -55,13 +67,27 @@ public class TenantChoresActivity extends AppCompatActivity {
      */
     private void initViews() {
         recyclerViewChores = (RecyclerView) findViewById(R.id.recyclerViewChores);
+        choresView = (LinearLayout) findViewById(R.id.chores_view);
     }
 
     /**
      * This method is to initialize objects to be used
      */
     private void initObjects() {
+        databaseHelper = new DatabaseHelper(activity);
+        listUsers = new ArrayList<>();
+        listUsers = databaseHelper.getGroupUser(groupFromIntent);
         listChores = new ArrayList<>();
+
+        //for loop: users
+        for(int a=0; a<listUsers.size(); a++){
+            TextView username_text = new TextView(this);
+            username_text.setTextSize(30.0f);
+            username_text.setText(listUsers.get(a).getName());
+            choresView.addView(username_text);
+        }
+
+        //for loop: chores
         for(int i=1;i<=6;i++){
             Chore tempChore=new Chore();
             tempChore.setDate(new Date(2017,10,i));
@@ -71,7 +97,7 @@ public class TenantChoresActivity extends AppCompatActivity {
             tempChore.setAssigned("Example Person "+i);
             listChores.add(tempChore);
         }
-        System.out.println(listChores);
+        //System.out.println(listChores);
 
         tenantChoresRecyclerAdapter = new TenantChoresRecyclerAdapter(listChores);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

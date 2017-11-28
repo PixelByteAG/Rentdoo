@@ -3,6 +3,7 @@ package cd.rentdooapp.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import cd.rentdooapp.model.Chore;
 
 /**
  * Created by shuge on 2017-10-21.
@@ -79,6 +80,23 @@ public class User {
     public String getChores() { return this.chores; }
 
     public void setChores(String newChores) { this.chores = newChores; }
+
+    public ArrayList<Chore> chores_stringToArrayList(String newChores) {
+        String[] tempString = newChores.split("\"\\\\s*\n\\\\s*\"");
+        List<String> newList = Arrays.asList(tempString);
+        ArrayList<String> userChoresStrings = new ArrayList<>(newList);
+        ArrayList<Chore> userChores = new ArrayList<>();
+        for(int i=0; i<userChoresStrings.size(); i++){
+            Chore tempChore = new Chore();
+            tempChore.setName(userChoresStrings.get(i));
+            tempChore.setDone(false);
+
+            userChores.set(i, tempChore);
+        }
+
+        return userChores;
+    }
+
 
     public void updateUserValues(String name, String email, String number, String rent, String chores){
         this.setName(name);

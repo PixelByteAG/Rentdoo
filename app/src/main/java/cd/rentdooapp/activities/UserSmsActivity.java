@@ -115,14 +115,14 @@ public class UserSmsActivity extends AppCompatActivity {
             text_name.setText(listUsers.get(i).getName());
             users_list.addView(text_name);
 
-            View v = new View(this);
+            /*View v = new View(this);
             v.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     5
             ));
             v.setBackgroundColor(Color.parseColor("#B3B3B3"));
 
-            users_list.addView(v);
+            users_list.addView(v);*/
         }
 
         /*Button text_all = new Button(this);

@@ -18,6 +18,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -86,38 +87,14 @@ public class UserEditActivity extends AppCompatActivity {
      */
     private void initObjects() {
         listUsers = new ArrayList<>();
-        //usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
-        User user = new User();
-        //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        //recyclerViewUsers.setLayoutManager(mLayoutManager);
-        //recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
-        //recyclerViewUsers.setHasFixedSize(true);
-        //recyclerViewUsers.setAdapter(usersRecyclerAdapter);
         databaseHelper = new DatabaseHelper(activity);
-        //listUsers = databaseHelper.getAllUser();
         listUsers = databaseHelper.getGroupUser(groupFromIntent);
-        /*String message = "";
-        for(int i=0; i<listUsers.size(); i++){
-            message = message + listUsers.get(i).getName() + ", ";
-        }
 
-        //String message = "";
-        Log.d("DB: ", message);*/
-
-        //Bundle b = getIntent().getExtras();
-        /*String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        user = databaseHelper.returnUser(emailFromIntent);
-        groupFromIntent = user.getGroup();
-        textViewName.setText(emailFromIntent);*/
-
-        String[] textArray = {"one", "two", "three", "four"};
-        //LinearLayout linearLayout = new LinearLayout(this);
-        //setContentView(users_list);
         users_list.setOrientation(LinearLayout.VERTICAL);
         for(int i=0; i<listUsers.size(); i++){
-            TextView textView = new TextView(this);
+            Button textButton = new Button(this);
             final int passingInt = i;
-            textView.setOnClickListener(new View.OnClickListener() {
+            textButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String testMsg = listUsers.get(passingInt).getName();
@@ -132,25 +109,18 @@ public class UserEditActivity extends AppCompatActivity {
                 }
             });
 
-            textView.setTextSize(30.0f);
-            textView.setText(listUsers.get(i).getName());
-            users_list.addView(textView);
+            textButton.setTextSize(30.0f);
+            textButton.setText(listUsers.get(i).getName());
+            users_list.addView(textButton);
 
-            View v = new View(this);
+            /*View v = new View(this);
             v.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     5
             ));
             v.setBackgroundColor(Color.parseColor("#B3B3B3"));
 
-            users_list.addView(v);
+            users_list.addView(v);*/
         }
-
-
-
-        //textViewName.setText(emailFromIntent);
-
-        //textViewNumber.setText("hello");
-        //getDataFromSQLite();*/
     }
 }

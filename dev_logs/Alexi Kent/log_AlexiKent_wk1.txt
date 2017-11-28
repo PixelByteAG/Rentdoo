@@ -1,0 +1,8 @@
+Alexi Kent - 100974542
+Dev Log #1
+
+The group decided on the idea for the project.
+We'll be going with the rent and roommate managing app.
+Name of the app: "Rentdoo"
+
+For now I'll to practice some basic Java to get refreshed as we'll be using that for the base code of the app

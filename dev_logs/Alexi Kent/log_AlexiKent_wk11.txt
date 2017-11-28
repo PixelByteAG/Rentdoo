@@ -1,0 +1,43 @@
+Alexi Kent - 100974542
+Dev Log #11
+
+Added the functionality of listing items at the user editing page (where the list of users will be)
+
+Added the activity_users_edit_list.xml file to have a view for displaying the users
+
+Changed the listing of users in the edit activity to show actual usernames
+
+Added onClick listeners for each dynamically created textview in the editUsers view
+
+Added redirect for each dynamically created textview
+
+new page added "activity_edit_user"
+
+added input fields where the user's info will be displayed and will be modifiable
+
+Changed the way the user list (for editing) was populated as it was originally grabbing all the users
+
+Now it only grabs the users from the Leaseholder's group
+
+Made the editing fields (for editing user) fill with the user's information
+
+Added labels to editTexts on the editSpecificUser page
+
+Added button to save changes made to the edited user. (need to implement code to update the user values)
+
+Changed how chores were stored within the user to make app more efficient
+
+Added the functionality of editing users as a leaseholder
+
+Fixed a few bugs within the Database code
+
+Added chores display to main user page
+
+Small UI improvements
+
+Fixed bug in database where Chores could not be accessed from UsersListActivity
+
+Had a "Polish" run with the app
+	- Remove clutter (unused code, unnessecary comments, etc)
+	- Make certain methods more efficient
+	- Changed to how chores were stored to make the app more efficient

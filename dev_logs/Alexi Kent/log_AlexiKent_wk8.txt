@@ -1,0 +1,4 @@
+Alexi Kent - 100974542
+Dev Log #8
+
+Took a break from the edit users implementation and planned out the implementation of chores for the users

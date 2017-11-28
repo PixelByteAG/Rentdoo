@@ -1,0 +1,17 @@
+Alexi Kent - 100974542
+Dev Log #10
+
+Commit 1:
+Changed the button that redirects to the editUsers activity, it is now from the main userlistactivity due to some issues encountered with UsersRecyclerAdapter
+
+Button for now redirects to a blank page
+
+Commit 2:
+Changed the button that redirects to the editUsers activity, it is now from the main userlistactivity due to some issues encountered with UsersRecyclerAdapter
+
+Button for now redirects to a blank notices page as a placeholder
+
+Commit 3:
+Fixed a graphical bug that caused the text to be black (very hard to see against the dark background)
+
+Worked on getting the button to properly redirect to the new activity

@@ -1,0 +1,10 @@
+Alexi Kent - 100974542
+Dev Log #3
+
+Started coding classes and methods for the following purposes:
+	- Leasholder can edit Users
+		- Name
+		- Email
+		- Phone
+		- Rent
+	- Add a list of chores to each user

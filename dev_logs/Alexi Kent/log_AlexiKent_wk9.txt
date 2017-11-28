@@ -1,0 +1,22 @@
+Alexi Kent - 100974542
+Dev Log #9
+
+Added the chores attribute to User.Java
+
+Implemented the get, set, add and remove methods for the chores attribute
+
+Implemented stringToChores so we can convert the string stored on the SQL database and convert it to an arraylist
+
+Implemented choresToString so we can convert out arraylist of chores to a string for storage on the SQL database
+
+Added a column for the chores string in the SQL database and assured the database was storing it properly
+
+Added button in users list view so the elaseholder can go edit that specific user
+
+Added View.OnClickListener into UserViewHolder (currently commented out, maybe be removed later on if it is of no use)
+
+Added text to registration page to differentiate the page from the login page
+
+Added button and button click listener to the UsersRecyclerAdapter
+
+Added new default to strings.xml

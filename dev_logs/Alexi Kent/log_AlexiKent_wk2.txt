@@ -1,0 +1,8 @@
+Alexi Kent - 100974542
+Dev Log #2
+
+Managed to get a good amount of practice in with Java.
+
+Practiced making very basic apps in androidStudio either from tutorials or or my own thoughts.
+
+Waiting on the java handler for the SQL database to be done before starting to code

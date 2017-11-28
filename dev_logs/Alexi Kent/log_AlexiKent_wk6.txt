@@ -1,0 +1,11 @@
+Alexi Kent - 100974542
+Dev Log #6
+
+I was on vacation for the majority of the week, so no work was done.
+
+Uploaded my first commit to the GitHub
+
+Fixed a typo issue that was stopping the database from populating properly which in turn stopped the login page from working properly.
+
+Had to catch up on other assignments so not much else was done.
+Editing of users was still bugged.

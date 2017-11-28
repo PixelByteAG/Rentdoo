@@ -1,0 +1,9 @@
+Alexi Kent - 100974542
+Dev Log #7
+
+Fixed a typo in LoginActivity.java
+Modified the User's list page to show phone number and hide password
+
+fixed issue with NULL object attempting to display phone number on User's list
+
+Decided how to implement editing of users (one at a time instead of all at once)

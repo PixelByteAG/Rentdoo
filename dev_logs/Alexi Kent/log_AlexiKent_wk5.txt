@@ -1,0 +1,8 @@
+Alexi Kent - 100974542
+Dev Log #5
+
+Fixed a typo issue within the database that made the app crash on login
+
+Fixed a numerous amount of bugs from the code made to edit users
+Still having issues with the redirect to a new page. 
+Consulted teammates to decide how we want to leaseholder to go and edit the users (all at one, one at a time, etc)

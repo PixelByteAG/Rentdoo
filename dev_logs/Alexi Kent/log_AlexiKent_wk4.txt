@@ -1,0 +1,7 @@
+Alexi Kent - 100974542
+Dev Log #4
+
+Made progress on the local copy of the project.
+
+Worked out a number of bugs that were present in the DatabaseHelper
+Fixed how the code for editing users was done as the RecyclerUsersAdapter couldn't redirect to another page

@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.util.List;
+import java.util.Map;
 
 import cd.rentdooapp.R;
 import cd.rentdooapp.model.Chore;
@@ -19,10 +20,10 @@ import cd.rentdooapp.model.Chore;
  */
 
 public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChoresRecyclerAdapter.ChoreViewHolder> {
-    private List<Chore> listChores;
+    private Map<String,List<Chore>> allChores;
 
-    public TenantChoresRecyclerAdapter(List<Chore> listChores) {
-        this.listChores = listChores;
+    public TenantChoresRecyclerAdapter(Map<String,List<Chore>> allChores) {
+        this.allChores = allChores;
     }
 
     @Override
@@ -30,6 +31,8 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
         // inflating recycler item view
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_user_chore, parent, false);
+        View nameView =LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_user_chore_name, parent, false);
 
         return new ChoreViewHolder(itemView);
     }
@@ -37,6 +40,14 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
     @Override
     public void onBindViewHolder(ChoreViewHolder holder, int position) {
         holder.textViewChore.setText(listChores.get(position).getName());
+
+        for(Map.Entry<String, List<Chore>> entry : allChores.entrySet()) {
+            String key = entry.getKey();
+            List value = entry.getValue();
+
+            // do what you have to do here
+            // In your case, another loop.
+        }
 
         if(listChores.get(position).getDone()){
             holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);
@@ -102,6 +113,21 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
                     Log.d("Test", "Button clicked");
                 }
             });*/
+        }
+    }
+
+    /**
+     * ViewHolder class
+     */
+    public class ChoreNameViewHolder extends RecyclerView.ViewHolder {
+
+        public AppCompatTextView textViewChoreName;
+
+        public ChoreNameViewHolder(View view) {
+            super(view);
+            textViewChoreName = (AppCompatTextView) view.findViewById(R.id.textViewChoreName);
+
+            
         }
     }
 

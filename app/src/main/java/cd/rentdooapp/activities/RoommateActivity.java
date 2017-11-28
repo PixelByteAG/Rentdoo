@@ -50,8 +50,6 @@ public class RoommateActivity extends AppCompatActivity{
 
         //getSupportActionBar().setTitle("Rentdoo");
 
-        //getSupportActionBar().setTitle("");
-
         initViews();
         initObjects();
 

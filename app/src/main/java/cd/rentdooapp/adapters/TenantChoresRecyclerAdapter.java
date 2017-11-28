@@ -45,6 +45,8 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
             holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.ic_delete);
             holder.imageViewChoreDoneCheck.setTag("ic_delete");
         }
+
+        holder.textViewChoreAssigned.setText(listChores.get(position).getAssigned());
     }
 
     @Override
@@ -60,7 +62,7 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
     public class ChoreViewHolder extends RecyclerView.ViewHolder {
 
         public AppCompatTextView textViewChore;
-        public ImageButton imageViewChoreOptions;
+        public AppCompatTextView textViewChoreAssigned;
         public ImageButton imageViewChoreDoneCheck;
 
         public ChoreViewHolder(View view) {
@@ -70,6 +72,8 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
             //add button to set completion
             imageViewChoreDoneCheck = (ImageButton) view.findViewById(R.id.imageViewChoreDoneCheck);
 
+            textViewChoreAssigned = (AppCompatTextView) view.findViewById(R.id.textViewChoreAssigned);
+
             imageViewChoreDoneCheck.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,31 +81,14 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
                         imageViewChoreDoneCheck.setImageResource(android.R.drawable.ic_delete);
                         imageViewChoreDoneCheck.setTag("ic_delete");
                     }else if(imageViewChoreDoneCheck.getTag()=="ic_delete"){
-                        imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);
+                        imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);   
                         imageViewChoreDoneCheck.setTag("presence_online");
                     }
 
                 }
             });
 
-            //add button to edit
-            imageViewChoreOptions = (ImageButton) view.findViewById(R.id.imageViewChoreOptions);
 
-            imageViewChoreOptions.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Test", "Button clicked");
-                }
-            });
-
-            /*button = (ImageButton)v.findViewById(R.id.imageButton);
-
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Test", "Button clicked");
-                }
-            });*/
         }
     }
 

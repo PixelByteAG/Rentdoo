@@ -32,12 +32,16 @@
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
-            <ImageButton
-                android:id="@+id/imageViewChoreOptions"
-                android:layout_width="29dp"
-                android:layout_height="32dp"
-                android:layout_weight="0.13"
-                app:srcCompat="@android:drawable/ic_menu_edit" />
+            <TextView
+                android:id="@+id/textViewChoreAssigned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/choreAssigned"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

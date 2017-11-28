@@ -62,13 +62,33 @@ public class TenantNoticesActivity extends AppCompatActivity {
      */
     private void initObjects() {
         listNotices = new ArrayList<>();
-        for(int i=1;i<=6;i++){
-            Notice tempNotice=new Notice();
-            tempNotice.setDate(new Date(2017,10,i));
-            tempNotice.setId(i);
-            tempNotice.setName("Example Notice "+i);
-            listNotices.add(tempNotice);
-        }
+
+        Notice tempNotice;
+
+        tempNotice=new Notice();
+        tempNotice.setDate(new Date(2017,11,30));
+        tempNotice.setId(101);
+        tempNotice.setName("John's parents are coming for dinner");
+        listNotices.add(tempNotice);
+
+        tempNotice=new Notice();
+        tempNotice.setDate(new Date(2017,12,6));
+        tempNotice.setId(102);
+        tempNotice.setName("Zack's girlfriend is staying the weekend");
+        listNotices.add(tempNotice);
+
+        tempNotice=new Notice();
+        tempNotice.setDate(new Date(2017,12,8));
+        tempNotice.setId(103);
+        tempNotice.setName("Cable installation guy coming today");
+        listNotices.add(tempNotice);
+
+        tempNotice=new Notice();
+        tempNotice.setDate(new Date(2017,12,15));
+        tempNotice.setId(104);
+        tempNotice.setName("Zack is leaving for the holidays");
+        listNotices.add(tempNotice);
+
         System.out.println(listNotices);
 
         tenantNoticesRecyclerAdapter = new TenantNoticesRecyclerAdapter(listNotices);

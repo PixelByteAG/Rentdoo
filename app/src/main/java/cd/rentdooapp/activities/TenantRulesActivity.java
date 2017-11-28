@@ -39,12 +39,12 @@ public class TenantRulesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_notices);
+        setContentView(R.layout.activity_user_rules);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        getSupportActionBar().setTitle("Notices");
+        getSupportActionBar().setTitle("Rules");
 
         initViews();
         initObjects();
@@ -66,7 +66,7 @@ public class TenantRulesActivity extends AppCompatActivity {
         for(int i=1;i<=6;i++){
             Rule tempRule=new Rule();
             tempRule.setId(i);
-            tempRule.setName("Example Notice "+i);
+            tempRule.setName("Example Rule "+i+": No running in room "+i);
             listRules.add(tempRule);
         }
         System.out.println(listRules);

@@ -49,7 +49,7 @@
     <string name="billUsername">James</string>
     <string name="paymentTotal">Total</string>
     <string name="paymentBillUsername">James</string>
-    <string name="editButtonDefault">Edit</string>
+    <string name="editButtonDefault">Edit Users</string>
     <string name="text_tenants">Tenants</string>
     <string name="tenant">Tenant_Name</string>
     <string name="action_logout">Logout</string>

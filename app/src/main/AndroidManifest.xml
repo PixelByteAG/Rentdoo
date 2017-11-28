@@ -45,21 +45,6 @@
             android:name=".activities.TenantNoticesActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".activities.HolderCalendarActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".activities.HolderBillsActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".activities.HolderChoresActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".activities.HolderNoticesActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".activities.HolderPaymentsActivity"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".activities.HolderTenantsActivity"
             android:screenOrientation="portrait"/>
         <activity

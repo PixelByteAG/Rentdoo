@@ -160,4 +160,6 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
             users_list.addView(textView);
         }*/
     }
+
+
 }

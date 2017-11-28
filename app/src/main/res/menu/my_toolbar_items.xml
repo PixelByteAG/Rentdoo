@@ -14,10 +14,8 @@
     <item android:id="@+id/action_notices"
         android:title="@string/action_notices"
         app:showAsAction="never"/>
-
-
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/action_rules"
+        android:title="@string/action_rules"
         app:showAsAction="never"/>
 
     <item android:id="@+id/action_logout"

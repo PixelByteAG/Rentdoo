@@ -112,7 +112,8 @@ public class EditChosenUserActivity extends AppCompatActivity implements View.On
                 //update the user values then update it in the database
                 currentUser.updateUserValues(textViewName.getText().toString(), textViewEmail.getText().toString(), textViewPhone.getText().toString(), textViewRent.getText().toString(), textViewChores.getText().toString());
                 databaseHelper.updateUser(currentUser);
-
+                String message = "" + textViewChores.getText().toString();
+                Log.d("test: ", message);
                 Intent userListIntent = new Intent(EditChosenUserActivity.this, UsersListActivity.class);
                 userListIntent.putExtra("EMAIL", masterEmail);
                 //editUserIntent.putExtra("UserName", listUsers.get(passingInt).getName());

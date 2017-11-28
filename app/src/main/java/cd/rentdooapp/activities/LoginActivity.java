@@ -4,6 +4,7 @@ package cd.rentdooapp.activities;
  * Created by shuge on 2017-10-21.
  */
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -12,6 +13,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 
@@ -137,6 +139,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 //accountsIntent.putExtra();
                 //maybe add number here? textInputEditTextNumber
                 emptyInputEditText();
+
+                /*String message = "Testing 1 2 3";
+                String phoneNumber = "16139838738";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phoneNumber));
+                intent.putExtra("sms_body", message);
+                startActivity(intent);*/
+
                 startActivity(accountsIntent);
             }
 

@@ -38,10 +38,12 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
     public void onBindViewHolder(UserViewHolder holder, int position) {
         holder.textViewName.setText(listUsers.get(position).getName());
         holder.textViewEmail.setText(listUsers.get(position).getEmail());
-        holder.textViewPassword.setText(listUsers.get(position).getPassword());
         holder.textViewNumber.setText(listUsers.get(position).getNumber());
         holder.textViewRole.setText(listUsers.get(position).getRole());
         holder.textViewRent.setText(Double.toString(listUsers.get(position).getRent()));
+        holder.textViewChores.setText(listUsers.get(position).getChores());
+        String message = "" + listUsers.get(position).getChores();
+        Log.d("Test", message);
     }
 
     @Override
@@ -58,21 +60,20 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
         public AppCompatTextView textViewName;
         public AppCompatTextView textViewEmail;
-        public AppCompatTextView textViewPassword;
         public AppCompatTextView textViewNumber;
         public AppCompatTextView textViewRole;
         public AppCompatTextView textViewRent;
+        public AppCompatTextView textViewChores;
         public Button editButton;
 
         public UserViewHolder(View view) {
             super(view);
             textViewName = (AppCompatTextView) view.findViewById(R.id.textViewName);
             textViewEmail = (AppCompatTextView) view.findViewById(R.id.textViewEmail);
-            textViewPassword = (AppCompatTextView) view.findViewById(R.id.textViewPassword);
             textViewNumber = (AppCompatTextView) view.findViewById(R.id.textViewNumber);
             textViewRole = (AppCompatTextView) view.findViewById(R.id.textViewRole);
             textViewRent = (AppCompatTextView) view.findViewById(R.id.textViewRent);
-
+            textViewChores = (AppCompatTextView) view.findViewById(R.id.textViewChores);
 
 
             //add button to edit

@@ -143,6 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     user.setNumber(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NUMBER)));
                     user.setRole(cursor.getString(cursor.getColumnIndex(COLUMN_USER_ROLE)));
                     user.setRent(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_USER_RENT))));
+                    user.setChores(cursor.getString(cursor.getColumnIndex(COLUMN_USER_CHORES)));
                     // Adding user record to list
                     userList.add(user);
                 }

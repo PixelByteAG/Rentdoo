@@ -1,0 +1,14 @@
+November 5 - 11:
+
+	XML templates (2 hours)
+	
+		Created XML templates for tenant and leaseholder,
+		these include tenant calendar views,
+		chores, notices, bills and calendar for lease holder
+		
+	Research and developement (4 hours)
+	
+		Experiemented with certain quality of life features including,
+		a slide out menu and a pervasive menu.
+		We decided not to incorporate the slide out menu into the app due to difficulties.
+		Also experiemnted creating activites and recyclers.

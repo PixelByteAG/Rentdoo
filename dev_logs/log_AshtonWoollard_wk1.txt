@@ -1,0 +1,7 @@
+September 10 - 16:
+			
+	Begginging of project (1 hour)
+	
+		As a group, we met for our first meeting. 
+		During this we chose our developement platform (android), 
+		our language (Java) and our project idea (Roommate Manager, later named Rentdoo)

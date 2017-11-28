@@ -1,0 +1,13 @@
+November 12 - 18:
+
+	Created Activites (2 hours)
+	
+		Created activites for the app includind,
+		tenant chores, bills, calendar, notices and,
+		lease holder chores, bills, calendar, notices
+		
+	Created recyclers (3 hours)
+	
+		Created recyclers for the app including,
+		tenant chores, bills, calendar, notices and,
+		lease holder chores, bills, calendar, notices

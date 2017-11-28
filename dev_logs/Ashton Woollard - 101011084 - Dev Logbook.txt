@@ -1,8 +1,8 @@
 September 10 - 16:
 
 	-Begginging of project
-	-As a group	
-		-Chose developement plat form
+	-As a group	(1 hour)
+		-Chose developement platform
 			-Android
 		-Chose language
 			-Java
@@ -12,49 +12,48 @@ September 10 - 16:
 September 17 - 23:
 
 	-Prepared for D1
-	-Created mock app layouts
+	-Created mock app layouts (2 hours)
 		-Tenant
 		-Leaseholder
-	-Research and developement
+	-Research and developement (3 hours)
 		-Android Developement
 			-Creating personal and simple app using online resources to learn android developement
 
 September 24 - 30:
-
-	-No work completed
-		-reading week
-
-October 1 - 7:
 	
 	-No work completed
-		-insanely busy week with other classes
-		
-October 8 - 14:
+		-insanely busy week with other classes	
+
+October 1 - 7:
 
 	-Minimal work completed
 		-Another very busy week, not as busy as week before
-	-Research and developement
+	-Research and developement (1 hour)
 		-Android Developement
 			-Creating personal and simple app using online resources to learn android developement
 	
-October 15 - 20:
+October 8 - 14:
 
-	-Research and developement
+	-Research and developement (2 hours)
 		-Android Developement
 			-Creating personal and simple app using online resources to learn android developement
 		-XML templates
+		
+October 15 - 20:
+
+	-Preferences templates (<1 hour)
+	-Research and developemental testing (2 hour)
+		-XML template testing
 
 October 21 - 27:
-
-	-Preferences templates
-	-Research and developemental testing
-		-XML template testing
-	-Prepared for D2
+	
+	-No work completed
+		-reading week
 
 October 28 - 4:
 
-	-Prepared for D2
-	-XML templates
+	-Prepared for D2 (1 hour)
+	-XML templates (2 hours)
 		-Tenant
 			-Chores
 			-Notices
@@ -64,7 +63,7 @@ October 28 - 4:
 
 November 5 - 11:
 
-	-XML templates
+	-XML templates (2 hours)
 		-tenant
 			-calendar
 		-leaseholder
@@ -72,7 +71,7 @@ November 5 - 11:
 			-notices
 			-bills
 			-calendar
-	-Research and developemental testing
+	-Research and developemental testing (4 hours)
 		-Slide out menu
 		-pervasive toolbar
 		-activities
@@ -80,7 +79,7 @@ November 5 - 11:
 
 November 12 - 18:
 
-	-Activites
+	-Activites (2 hours)
 		-tenant
 			-Chores
 			-Notices
@@ -91,7 +90,7 @@ November 12 - 18:
 			-notices
 			-bills
 			-calendar
-	-Recylers
+	-Recylers (3 hours)
 		-tenant
 			-Chores
 			-Notices
@@ -99,9 +98,9 @@ November 12 - 18:
 
 November 19 - 25:
 	
-	-Prepared for D3
+	-Prepared for D3 (3 hours)
 		-Prepared presentaion notes for 3 of the 4 group members
 		-Created presentaion power point
-	-Prepared for D4
+	-Prepared for D4 (1 hour)
 		-Polishing app in preperation of demo
 		

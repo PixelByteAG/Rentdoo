@@ -1,0 +1,10 @@
+October 15 - 20:
+
+	Research and Development (2 hours)
+		
+		Experimenting creating custom XML templates in a personal android app,
+		in order to create better XMl templates for our group app
+	
+	Preferences Templates (<1 hour)
+	
+		Created some preferences templates and other resource files

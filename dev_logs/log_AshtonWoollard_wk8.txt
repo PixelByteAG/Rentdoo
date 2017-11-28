@@ -1,0 +1,11 @@
+October 28 - 4:
+	
+	Prepared for D2 (1 hour)
+	
+		Prepared for D2 with some group members
+		
+	Created XML templates (2 hours)
+		
+		Created some XML templates for Tenant,
+		including Chores, Notices and Bills
+		Created some early XML work for leasholder views.

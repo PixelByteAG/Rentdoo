@@ -1,0 +1,8 @@
+October 8 - 14:
+
+	Research and Developement (2 hours)
+	
+		Creating and experimenting with a personal android app,
+		in order to learn android develepment.
+		Also experimenting with XML templates,
+		in order to learn how to better create XML templates for our group app

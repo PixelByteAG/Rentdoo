@@ -1,0 +1,11 @@
+September 17 - 23:
+
+	Prepared for D1 (2 hours)
+	
+		Created the mock lay outs for our app.
+		There were used in our D1 presentaion and as a basis later for development
+	
+	Research and Developement (3 hours)
+	
+		In order to learn android developement, 
+		researched and made a small app not related to our project following online tutorials.

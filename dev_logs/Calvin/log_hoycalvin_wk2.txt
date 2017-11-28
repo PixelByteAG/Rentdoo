@@ -1,0 +1,9 @@
+Calvin Hoy (100954276)
+
+Sept 26, 2017 (1:21pm - 7:32pm)
+- New activity created "activity_create_account".
+- Set Background color of CreateAccount activity to "colorPrimaryDark".
+- Made the "Create New Account" TextView start the CreateAccount activity on click.
+- Googled a placeholder image for “Rentdoo”. Added the subsequent .jpg file.
+
+- Started having problems with GitHub and my computer. Sent all of my code to Shugeevan.

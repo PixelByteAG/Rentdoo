@@ -1,0 +1,5 @@
+Calvin Hoy (100954276)
+
+Oct 31, 2017 (11am - 3am):
+- Research done on Cardviews and RecyclerView. Seeing if I can make it look cleaner, with vertically expanding elements.
+- Worked on and submitted D2.

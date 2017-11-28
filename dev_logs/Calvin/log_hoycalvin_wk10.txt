@@ -1,0 +1,8 @@
+Calvin Hoy (100954276)
+
+Nov 27, 2017 (7am - 4:30am):
+- Started remapping server code to Google Firebase.
+
+- Added a “Users” to the end of strings.xml’s editButtonDefault for user’s usage clarity.
+
+- Worked on and submitted D4.

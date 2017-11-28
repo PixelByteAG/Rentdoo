@@ -1,0 +1,10 @@
+Calvin Hoy (100954276)
+
+Oct 9, 2017 (2:21pm - 5:57pm)
+- Helped do research on SQL and queries.
+
+- Mapped login button to go to UserActivity.
+
+- Mapped register text to go to RegisterActivity.
+
+- Suggested the group ID idea, implemented DatabaseHelper’s checkGroup().

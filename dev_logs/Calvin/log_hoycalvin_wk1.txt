@@ -1,0 +1,16 @@
+Calvin Hoy (100954276)
+
+Sept 17, 2017:
+Worked on D1. Sent to Alexi for finishing touches.
+
+
+Sept 18, 2017 (7:26pm - 10:13pm)
+- Created RoommateApp. Used "Blank Activity". First activity called "MainActivity.java".
+- Set layout style to RelativeLayout.
+- Added new colors to "colors.xml", #ccffb3 ("mint"), #d3d3d3 ("grey"), #ffffff ("white"), #47d147 ("lime"), 
+				    #990000 ("red"), #ffffff ("black"), 
+- Set background color of login screen to "mint".
+- Created a Plain Text textField for username user inputs and changed hint to "Username".
+- Created a Password textField for password user inputs and changed hint to "Password".
+- Created a TextView for "Click Here to Create a New Account".
+- Added a Button, colored it "lime", and changed label text to "Login".

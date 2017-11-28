@@ -1,0 +1,4 @@
+Calvin Hoy (100954276)
+
+Nov 8, 2017 (1:13pm - 1:17pm)
+- Fixed a typo in UsersListActivity. Switched groupFromIntent Integer (type object) to int (type int).

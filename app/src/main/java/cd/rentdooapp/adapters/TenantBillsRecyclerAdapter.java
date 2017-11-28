@@ -39,10 +39,14 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
     public void onBindViewHolder(BillViewHolder holder, int position) {
         holder.textViewBill.setText(listBills.get(position).getName());
         holder.textViewBillAmount.setText("$"+listBills.get(position).getAmount());
+
+
         if(listBills.get(position).getPaid()){
             holder.imageViewBillPaidCheck.setImageResource(android.R.drawable.presence_online);
+            holder.imageViewBillPaidCheck.setTag("presence_online");
         }else{
             holder.imageViewBillPaidCheck.setImageResource(android.R.drawable.ic_delete);
+            holder.imageViewBillPaidCheck.setTag("ic_delete");
         }
     }
 
@@ -61,7 +65,7 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
         public AppCompatTextView textViewBill;
         public AppCompatTextView textViewBillAmount;
         public ImageButton imageViewBillOptions;
-        public ImageView imageViewBillPaidCheck;
+        public ImageButton imageViewBillPaidCheck;
 
         public BillViewHolder(View view) {
             super(view);
@@ -73,7 +77,22 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
             //add button to edit
             imageViewBillOptions = (ImageButton) view.findViewById(R.id.imageViewBillOptions);
 
-            imageViewBillPaidCheck =(ImageView) view.findViewById(R.id.imageViewBillPaidCheck);
+            //add button to set completion
+            imageViewBillPaidCheck = (ImageButton) view.findViewById(R.id.imageViewBillPaidCheck);
+
+            imageViewBillPaidCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(imageViewBillPaidCheck.getTag()=="presence_online"){
+                        imageViewBillPaidCheck.setImageResource(android.R.drawable.ic_delete);
+                        imageViewBillPaidCheck.setTag("ic_delete");
+                    }else if(imageViewBillPaidCheck.getTag()=="ic_delete"){
+                        imageViewBillPaidCheck.setImageResource(android.R.drawable.presence_online);
+                        imageViewBillPaidCheck.setTag("presence_online");
+                    }
+
+                }
+            });
 
             imageViewBillOptions.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -106,9 +106,6 @@ public class RoommateActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
             case R.id.action_logout:
                 intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);

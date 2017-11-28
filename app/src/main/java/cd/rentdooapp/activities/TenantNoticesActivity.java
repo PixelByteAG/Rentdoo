@@ -86,7 +86,13 @@ public class TenantNoticesActivity extends AppCompatActivity {
         tempNotice=new Notice();
         tempNotice.setDate(new Date(2017,12,15));
         tempNotice.setId(104);
-        tempNotice.setName("Zack is leaving for the holidays");
+        tempNotice.setName("Adam is leaving for the holidays");
+        listNotices.add(tempNotice);
+
+        tempNotice=new Notice();
+        tempNotice.setDate(new Date(2017,12,17));
+        tempNotice.setId(105);
+        tempNotice.setName("Shane is leaving for the holidays");
         listNotices.add(tempNotice);
 
         System.out.println(listNotices);

@@ -63,12 +63,34 @@ public class TenantRulesActivity extends AppCompatActivity {
      */
     private void initObjects() {
         listRules = new ArrayList<>();
-        for(int i=1;i<=6;i++){
-            Rule tempRule=new Rule();
-            tempRule.setId(i);
-            tempRule.setName("Example Rule "+i+": No running in room "+i);
-            listRules.add(tempRule);
-        }
+
+        Rule tempRule;
+
+        tempRule=new Rule();
+        tempRule.setId(101);
+        tempRule.setName("No guests can stay for more than 3 consecutive days");
+        listRules.add(tempRule);
+
+        tempRule=new Rule();
+        tempRule.setId(102);
+        tempRule.setName("No running in the hallways");
+        listRules.add(tempRule);
+
+        tempRule=new Rule();
+        tempRule.setId(103);
+        tempRule.setName("No touching the thermostat, let John know if the temperature need to be changed");
+        listRules.add(tempRule);
+
+        tempRule=new Rule();
+        tempRule.setId(104);
+        tempRule.setName("Dont touch the button");
+        listRules.add(tempRule);
+
+        tempRule=new Rule();
+        tempRule.setId(105);
+        tempRule.setName("The cake is a lie");
+        listRules.add(tempRule);
+
         System.out.println(listRules);
 
         tenantRulesRecyclerAdapter = new TenantRulesRecyclerAdapter(listRules);

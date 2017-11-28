@@ -76,6 +76,7 @@ public class TenantBillsActivity extends AppCompatActivity {
         tempBill.setDate(new Date(2017,12,1));
         tempBill.setId(1);
         tempBill.setName("Rent");
+        tempBill.setPaid(false);
         listBills.add(tempBill);
 
         tempBill=new Bill();
@@ -83,6 +84,7 @@ public class TenantBillsActivity extends AppCompatActivity {
         tempBill.setDate(new Date(2017,12,1));
         tempBill.setId(2);
         tempBill.setName("Hydro Bill");
+        tempBill.setPaid(true);
         listBills.add(tempBill);
 
         tempBill=new Bill();
@@ -90,6 +92,7 @@ public class TenantBillsActivity extends AppCompatActivity {
         tempBill.setDate(new Date(2017,12,1));
         tempBill.setId(3);
         tempBill.setName("Internet Bill");
+        tempBill.setPaid(false);
         listBills.add(tempBill);
 
         tempBill=new Bill();
@@ -97,6 +100,7 @@ public class TenantBillsActivity extends AppCompatActivity {
         tempBill.setDate(new Date(2017,12,1));
         tempBill.setId(4);
         tempBill.setName("Cable Bill");
+        tempBill.setPaid(false);
         listBills.add(tempBill);
 
         System.out.println(listBills);

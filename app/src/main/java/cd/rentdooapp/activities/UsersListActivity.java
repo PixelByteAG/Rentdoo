@@ -187,6 +187,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
         switch (item.getItemId()) {
             case R.id.action_logout:
                 intent = new Intent(getApplicationContext(),LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
 

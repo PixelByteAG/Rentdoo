@@ -40,8 +40,10 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
 
         if(listChores.get(position).getDone()){
             holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);
+            holder.imageViewChoreDoneCheck.setTag("presence_online");
         }else{
             holder.imageViewChoreDoneCheck.setImageResource(android.R.drawable.ic_delete);
+            holder.imageViewChoreDoneCheck.setTag("ic_delete");
         }
     }
 
@@ -59,14 +61,28 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
 
         public AppCompatTextView textViewChore;
         public ImageButton imageViewChoreOptions;
-        public ImageView imageViewChoreDoneCheck;
+        public ImageButton imageViewChoreDoneCheck;
 
         public ChoreViewHolder(View view) {
             super(view);
             textViewChore = (AppCompatTextView) view.findViewById(R.id.textViewChore);
 
-            imageViewChoreDoneCheck =(ImageView) view.findViewById(R.id.imageViewChoreDoneCheck);
+            //add button to set completion
+            imageViewChoreDoneCheck = (ImageButton) view.findViewById(R.id.imageViewChoreDoneCheck);
 
+            imageViewChoreDoneCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(imageViewChoreDoneCheck.getTag()=="presence_online"){
+                        imageViewChoreDoneCheck.setImageResource(android.R.drawable.ic_delete);
+                        imageViewChoreDoneCheck.setTag("ic_delete");
+                    }else if(imageViewChoreDoneCheck.getTag()=="ic_delete"){
+                        imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);
+                        imageViewChoreDoneCheck.setTag("presence_online");
+                    }
+
+                }
+            });
 
             //add button to edit
             imageViewChoreOptions = (ImageButton) view.findViewById(R.id.imageViewChoreOptions);

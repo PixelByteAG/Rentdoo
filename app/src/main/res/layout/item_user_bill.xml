@@ -16,11 +16,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageViewBillPaidCheck"
                 android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="0.13"
+                android:layout_height="36dp"
+                android:layout_weight="0.05"
                 app:srcCompat="@android:drawable/ic_delete" />
 
             <TextView

@@ -55,7 +55,7 @@ public class TenantRulesRecyclerAdapter extends RecyclerView.Adapter<TenantRules
 
         public RuleViewHolder(View view) {
             super(view);
-            textViewRule = (AppCompatTextView) view.findViewById(R.id.textViewNotice);
+            textViewRule = (AppCompatTextView) view.findViewById(R.id.textViewRule);
 
         }
     }

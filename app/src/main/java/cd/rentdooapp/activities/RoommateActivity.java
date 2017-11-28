@@ -33,6 +33,7 @@ public class RoommateActivity extends AppCompatActivity{
     private AppCompatTextView textViewPhone;
     private AppCompatTextView textViewRole;
     private AppCompatTextView textViewRent;
+    private AppCompatTextView textViewChores;
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
     private UsersRecyclerAdapter usersRecyclerAdapter;
@@ -65,6 +66,7 @@ public class RoommateActivity extends AppCompatActivity{
         textViewPhone = (AppCompatTextView) findViewById(R.id.textViewNumber);
         textViewRole = (AppCompatTextView) findViewById(R.id.textViewRole);
         textViewRent = (AppCompatTextView) findViewById(R.id.textViewRent);
+        textViewChores = (AppCompatTextView) findViewById(R.id.textViewChores);
 
         //recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
         //textViewNumber = (AppCompatTextView) findViewById(R.id.textViewNumber);
@@ -91,6 +93,7 @@ public class RoommateActivity extends AppCompatActivity{
         textViewPhone.setText(user.getNumber());
         textViewRole.setText(user.getRole());
         textViewRent.setText(Double.toString(user.getRent()));
+        textViewChores.setText(user.getChores());
 
 
 

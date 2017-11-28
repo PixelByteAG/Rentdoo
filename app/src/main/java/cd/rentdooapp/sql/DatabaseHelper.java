@@ -403,7 +403,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_NAME,
                 COLUMN_USER_PASSWORD,
                 COLUMN_USER_NUMBER,
-                COLUMN_USER_GROUP
+                COLUMN_USER_GROUP,
+                COLUMN_USER_CHORES
 
         };
 
@@ -446,7 +447,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_NUMBER,
                 COLUMN_USER_GROUP,
                 COLUMN_USER_ROLE,
-                COLUMN_USER_RENT
+                COLUMN_USER_RENT,
+                COLUMN_USER_CHORES
 
         };
 
@@ -472,6 +474,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 user.setGroup(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_USER_GROUP))));
                 user.setRole(cursor.getString(cursor.getColumnIndex(COLUMN_USER_ROLE)));
                 user.setRent(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_USER_RENT))));
+                user.setChores(cursor.getString(cursor.getColumnIndex(COLUMN_USER_CHORES)));
 
             }while (cursor.moveToNext());
 

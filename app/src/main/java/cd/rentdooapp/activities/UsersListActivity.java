@@ -32,6 +32,7 @@ import java.util.List;
 public class UsersListActivity extends AppCompatActivity implements View.OnClickListener{
     private AppCompatActivity activity = UsersListActivity.this;
     private AppCompatButton editUsersButton;
+    private AppCompatButton sms_button;
     private AppCompatTextView textViewName;
     private RecyclerView recyclerViewUsers;
     private List<User> listUsers;
@@ -40,10 +41,16 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
     private int groupFromIntent;
     private String emailFromIntent;
 
-    //for the edit buttons
-    /*public void editUser(RecyclerView view) {
-        // Do something in response to button click
-    }*/
+    /*
+    String strPhone = "+16139838738, +17058280788, +16138900767";
+                String strMessage = "Lorem\nIpsum";
+
+                Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                sendIntent.setType("vnd.android-dir/mms-sms");
+                sendIntent.putExtra("address", strPhone);
+                sendIntent.putExtra("sms_body", strMessage);
+                startActivity(sendIntent);
+    */
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +87,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
         recyclerViewUsers = (RecyclerView) findViewById(R.id.recyclerViewUsers);
 
         editUsersButton = (AppCompatButton) findViewById(R.id.userEdit_button);
+        sms_button = (AppCompatButton) findViewById(R.id.sms_button);
     }
 
     /**
@@ -87,6 +95,7 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
      */
     private void initListeners() {
         editUsersButton.setOnClickListener(this);
+        sms_button.setOnClickListener(this);
     }
 
     /**
@@ -103,6 +112,15 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
                 intentEdit.putExtra("masterEmail", emailFromIntent);
                 //finish();
                 startActivity(intentEdit);
+                break;
+
+            case R.id.sms_button:
+                // Navigate to UserEditActivity.java
+                Intent intentSms = new Intent(getApplicationContext(), UserSmsActivity.class);
+                intentSms.putExtra("groupID", groupFromIntent);
+                intentSms.putExtra("masterEmail", emailFromIntent);
+                //finish();
+                startActivity(intentSms);
                 break;
         }
     }

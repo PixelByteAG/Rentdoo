@@ -42,7 +42,7 @@
     <string name="text_notice">Notices</string>
     <string name ="hint_role">Role</string>
     <string name ="hint_rent">Rent</string>
-    <string name ="rentDetail">Rental Information</string>
+    <string name ="rentDetail">User Information</string>
     <string name = "hint_phone">Phone</string>
     <string name="holder_payment">Payments</string>
     <string name="text_payments">Payments</string>

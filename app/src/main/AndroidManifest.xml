@@ -45,6 +45,9 @@
             android:name=".activities.TenantNoticesActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".activities.TenantRulesActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".activities.UserEditActivity"
             android:screenOrientation="portrait"/>
         <activity

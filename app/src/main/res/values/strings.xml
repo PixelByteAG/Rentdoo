@@ -65,4 +65,5 @@
     <string name="hint_chores">Chores</string>
     <string name="rules">Rules</string>
     <string name="action_rules">House Rules</string>
+    <string name="text_forgot_password">Forgot Password</string>
 </resources>

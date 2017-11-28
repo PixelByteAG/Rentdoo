@@ -68,15 +68,37 @@ public class TenantBillsActivity extends AppCompatActivity {
      */
     private void initObjects() {
         listBills = new ArrayList<>();
-        for(int i=1;i<=6;i++){
-            Bill tempBill=new Bill();
-            tempBill.setAmount(100*i);
-            tempBill.setDate(new Date(2017,10,i));
-            tempBill.setId(i);
-            tempBill.setName("Example Bill "+i);
-            tempBill.setPaid((i%2 == 0) ? true : false);
-            listBills.add(tempBill);
-        }
+
+        Bill tempBill;
+
+        tempBill=new Bill();
+        tempBill.setAmount(500);
+        tempBill.setDate(new Date(2017,12,1));
+        tempBill.setId(1);
+        tempBill.setName("Rent");
+        listBills.add(tempBill);
+
+        tempBill=new Bill();
+        tempBill.setAmount(170);
+        tempBill.setDate(new Date(2017,12,1));
+        tempBill.setId(2);
+        tempBill.setName("Hydro Bill");
+        listBills.add(tempBill);
+
+        tempBill=new Bill();
+        tempBill.setAmount(70);
+        tempBill.setDate(new Date(2017,12,1));
+        tempBill.setId(3);
+        tempBill.setName("Internet Bill");
+        listBills.add(tempBill);
+
+        tempBill=new Bill();
+        tempBill.setAmount(40);
+        tempBill.setDate(new Date(2017,12,1));
+        tempBill.setId(4);
+        tempBill.setName("Cable Bill");
+        listBills.add(tempBill);
+
         System.out.println(listBills);
 
         tenantBillsRecyclerAdapter = new TenantBillsRecyclerAdapter(listBills);

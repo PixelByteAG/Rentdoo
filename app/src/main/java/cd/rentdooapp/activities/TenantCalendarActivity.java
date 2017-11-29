@@ -35,6 +35,7 @@ public class TenantCalendarActivity extends AppCompatActivity {
     private MaterialCalendarView recyclerViewTenantCalendar;
     private List<Notice> listNotices;
     private TenantCalendarRecyclerAdapter tenantCalendarRecyclerAdapter;
+    private int groupFromIntent;
 
 //for the edit buttons
     /*public void editUser(RecyclerView view) {
@@ -50,6 +51,9 @@ public class TenantCalendarActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         getSupportActionBar().setTitle("Calendar");
+
+        Bundle bundle = getIntent().getExtras();
+        groupFromIntent = bundle.getInt("groupID");
 
         initViews();
         initObjects();
@@ -97,22 +101,27 @@ public class TenantCalendarActivity extends AppCompatActivity {
 
             case R.id.action_bills:
                 intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_calendar:
                 intent = new Intent(getApplicationContext(),TenantCalendarActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_chores:
                 intent = new Intent(getApplicationContext(),TenantChoresActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_notices:
                 intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_rules:
                 intent = new Intent(getApplicationContext(),TenantRulesActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             default:

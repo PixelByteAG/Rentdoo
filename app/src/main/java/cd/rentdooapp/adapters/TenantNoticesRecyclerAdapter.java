@@ -52,21 +52,13 @@ public class TenantNoticesRecyclerAdapter extends RecyclerView.Adapter<TenantNot
     public class NoticeViewHolder extends RecyclerView.ViewHolder {
 
         public AppCompatTextView textViewNotice;
-        public ImageButton imageViewNoticeOptions;
+
 
         public NoticeViewHolder(View view) {
             super(view);
             textViewNotice = (AppCompatTextView) view.findViewById(R.id.textViewNotice);
 
-            //add button to edit
-            imageViewNoticeOptions = (ImageButton) view.findViewById(R.id.imageViewNoticeOptions);
 
-            imageViewNoticeOptions.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Test", "Button clicked");
-                }
-            });
 
             /*button = (ImageButton)v.findViewById(R.id.imageButton);
 

@@ -82,7 +82,7 @@ public class User {
     public void setChores(String newChores) { this.chores = newChores; }
 
     public ArrayList<Chore> chores_stringToArrayList(String newChores) {
-        String[] tempString = newChores.split("\"\\\\s*\n\\\\s*\"");
+        String[] tempString = newChores.split("\\r?\\n");
         List<String> newList = Arrays.asList(tempString);
         ArrayList<String> userChoresStrings = new ArrayList<>(newList);
         ArrayList<Chore> userChores = new ArrayList<>();
@@ -90,8 +90,9 @@ public class User {
             Chore tempChore = new Chore();
             tempChore.setName(userChoresStrings.get(i));
             tempChore.setDone(false);
+            tempChore.setAssigned(this.getName());
 
-            userChores.set(i, tempChore);
+            userChores.add(tempChore);
         }
 
         return userChores;

@@ -41,7 +41,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
         holder.textViewNumber.setText(listUsers.get(position).getNumber());
         holder.textViewRole.setText(listUsers.get(position).getRole());
         holder.textViewRent.setText(Double.toString(listUsers.get(position).getRent()));
-        holder.textViewChores.setText(listUsers.get(position).getChores());
+        //holder.textViewChores.setText(listUsers.get(position).getChores());
         String message = "" + listUsers.get(position).getChores();
         Log.d("Test", message);
     }
@@ -63,7 +63,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
         public AppCompatTextView textViewNumber;
         public AppCompatTextView textViewRole;
         public AppCompatTextView textViewRent;
-        public AppCompatTextView textViewChores;
+        //public AppCompatTextView textViewChores;
         public Button editButton;
 
         public UserViewHolder(View view) {
@@ -73,7 +73,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
             textViewNumber = (AppCompatTextView) view.findViewById(R.id.textViewNumber);
             textViewRole = (AppCompatTextView) view.findViewById(R.id.textViewRole);
             textViewRent = (AppCompatTextView) view.findViewById(R.id.textViewRent);
-            textViewChores = (AppCompatTextView) view.findViewById(R.id.textViewChores);
+            //textViewChores = (AppCompatTextView) view.findViewById(R.id.textViewChores);
 
 
             //add button to edit

@@ -64,7 +64,7 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
 
         public AppCompatTextView textViewBill;
         public AppCompatTextView textViewBillAmount;
-        public ImageButton imageViewBillOptions;
+
         public ImageButton imageViewBillPaidCheck;
 
         public BillViewHolder(View view) {
@@ -74,8 +74,7 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
 
 
 
-            //add button to edit
-            imageViewBillOptions = (ImageButton) view.findViewById(R.id.imageViewBillOptions);
+
 
             //add button to set completion
             imageViewBillPaidCheck = (ImageButton) view.findViewById(R.id.imageViewBillPaidCheck);
@@ -91,13 +90,6 @@ public class TenantBillsRecyclerAdapter extends RecyclerView.Adapter<TenantBills
                         imageViewBillPaidCheck.setTag("presence_online");
                     }
 
-                }
-            });
-
-            imageViewBillOptions.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Test", "Button clicked");
                 }
             });
 

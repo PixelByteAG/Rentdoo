@@ -193,10 +193,12 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.action_bills:
                 intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_calendar:
                 intent = new Intent(getApplicationContext(),TenantCalendarActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_chores:
@@ -206,10 +208,12 @@ public class UsersListActivity extends AppCompatActivity implements View.OnClick
                 return true;
             case R.id.action_notices:
                 intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_rules:
                 intent = new Intent(getApplicationContext(),TenantRulesActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             default:

@@ -80,15 +80,18 @@ public class TenantChoresActivity extends AppCompatActivity {
         listChores = new ArrayList<>();
 
         //for loop: users
+        ArrayList<Chore> userChores = new ArrayList<>();
         for(int a=0; a<listUsers.size(); a++){
-            TextView username_text = new TextView(this);
-            username_text.setTextSize(30.0f);
-            username_text.setText(listUsers.get(a).getName());
-            choresView.addView(username_text);
+            userChores = listUsers.get(a).chores_stringToArrayList(listUsers.get(a).getChores());
+
+            for(int i=0; i<userChores.size(); i++){
+                listChores.add(userChores.get(i));
+            }
+
         }
 
         //for loop: chores
-        for(int i=1;i<=6;i++){
+        /*for(int i=1;i<=6;i++){
             Chore tempChore=new Chore();
             tempChore.setDate(new Date(2017,10,i));
             tempChore.setId(i);
@@ -96,7 +99,7 @@ public class TenantChoresActivity extends AppCompatActivity {
             tempChore.setDone((i%2 == 0) ? true : false);
             tempChore.setAssigned("Example Person "+i);
             listChores.add(tempChore);
-        }
+        }*/
         //System.out.println(listChores);
 
         tenantChoresRecyclerAdapter = new TenantChoresRecyclerAdapter(listChores);
@@ -127,22 +130,27 @@ public class TenantChoresActivity extends AppCompatActivity {
 
             case R.id.action_bills:
                 intent = new Intent(getApplicationContext(),TenantBillsActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_calendar:
                 intent = new Intent(getApplicationContext(),TenantCalendarActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_chores:
                 intent = new Intent(getApplicationContext(),TenantChoresActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_notices:
                 intent = new Intent(getApplicationContext(),TenantNoticesActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             case R.id.action_rules:
                 intent = new Intent(getApplicationContext(),TenantRulesActivity.class);
+                intent.putExtra("groupID", groupFromIntent);
                 startActivity(intent);
                 return true;
             default:

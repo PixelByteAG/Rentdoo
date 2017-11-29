@@ -81,7 +81,7 @@ public class TenantChoresRecyclerAdapter extends RecyclerView.Adapter<TenantChor
                         imageViewChoreDoneCheck.setImageResource(android.R.drawable.ic_delete);
                         imageViewChoreDoneCheck.setTag("ic_delete");
                     }else if(imageViewChoreDoneCheck.getTag()=="ic_delete"){
-                        imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);   
+                        imageViewChoreDoneCheck.setImageResource(android.R.drawable.presence_online);
                         imageViewChoreDoneCheck.setTag("presence_online");
                     }
 
